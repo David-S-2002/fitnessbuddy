@@ -3,7 +3,3 @@
 
 export 'fitness_buddy_bloc.dart';
 export 'models.dart';
-
-// Sources used when writing the BLOC:
-// https://bloclibrary.dev/#/flutterweathertutorial?id=business-logic-layer
-

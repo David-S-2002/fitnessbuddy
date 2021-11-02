@@ -4,12 +4,26 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+    
+        // {
+        //     "name": "Flutter",
+        //     "type": "dart",
+        //     "request": "launch",
+        //     "program": "lib/main.dart",
+        //     "flutterMode": "profile"
+        // },
+        // {
+        //     "name": "Flutter",
+        //     "type": "dart",
+        //     "request": "launch",
+        //     "program": "lib/main.dart"
+        // },
         {
             "name": "Flutter",
             "type": "dart",
             "request": "launch",
             "program": "lib/main.dart",
-            "flutterMode": "profile"
+            "flutterMode": "debug"
         },
         {
             "name": "Dart: Attach to Process",
@@ -21,23 +35,17 @@
             "type": "dart",
             "request": "attach"
         },
-
-        {
-            "name": "Flutter",
-            "type": "dart",
-            "request": "launch",
-            "program": "lib/main.dart"
-        },
+        // {
+        //     "name": "fitnessbuddy",
+        //     "request": "launch",
+        //     "type": "dart"
+        // },
         {
             "name": "fitnessbuddy",
             "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "fitnessbuddy (profile mode)",
-            "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
-        }
+            "flutterMode": "debug"
+        },
+    
     ]
 }

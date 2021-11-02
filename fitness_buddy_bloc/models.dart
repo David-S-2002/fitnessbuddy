@@ -18,13 +18,15 @@ enum Difficulty { easy, medium, hard }
 // instead of a List<MuscleGroup>
 
 class Exercise {
+  String exerciseName;
   DateTime exerciseTime;
   String equipment; // have an enum?
   List<MuscleGroup> muscleGroups;
   Difficulty difficulty;
 
   Exercise(
-      {required this.exerciseTime,
+      {required this.exerciseName,
+      required this.exerciseTime,
       required this.equipment,
       required this.muscleGroups,
       required this.difficulty});
@@ -40,11 +42,7 @@ class Exercise {
 
 class Circuit {
   List<Exercise> exercises;
-  Difficulty difficulty;
   DateTime restTime;
 
-  Circuit(
-      {required this.exercises,
-      required this.difficulty,
-      required this.restTime});
+  Circuit({required this.exercises, required this.restTime});
 }

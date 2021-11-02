@@ -11,4 +11,8 @@ https://bloclibrary.dev/#/flutterfirebaselogintutorial
 // I imitated the structure of the BLOCs in these sources.
 // https://bloclibrary.dev/#/flutterweathertutorial?id=business-logic-layer
 // https://bloclibrary.dev/#/flutterlogintutorial
+
+Used this to get exercises for the database:
+https://www.acefitness.org/education-and-resources/lifestyle/exercise-library/
+
 */

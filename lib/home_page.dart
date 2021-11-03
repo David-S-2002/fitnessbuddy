@@ -16,6 +16,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     print("Printing to see where this message goes...");
+    print("Making changes...");
 
     return Scaffold(
         appBar: AppBar(title: const Text("Fitness Buddy")),

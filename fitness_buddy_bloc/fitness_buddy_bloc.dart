@@ -20,7 +20,8 @@ class FitnessBuddyBloc extends Bloc<FitnessBuddyEvent, FitnessBuddyState> {
     emit(state.copyWith(status: FitnessBuddyStatus.loading));
 
     try {
-      // call the repo with "await" to get the exercises
+      // call the repo with "await" to get the exercises by muscle group
+      // out of those, select them by difficulty
 
       // if it works, then emit a success state
       emit(state.copyWith(

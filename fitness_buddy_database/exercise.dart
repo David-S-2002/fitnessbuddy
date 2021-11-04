@@ -12,6 +12,7 @@ part 'exercise.g.dart';
 
 @JsonSerializable()
 class Exercise {
+  String exerciseName;
   int exerciseId;
   String muscleGroup;
   String? secondaryMuscleGroup;
@@ -19,7 +20,8 @@ class Exercise {
   int difficulty;
 
   Exercise(
-      {required this.exerciseId,
+      {required this.exerciseName,
+      required this.exerciseId,
       required this.muscleGroup,
       required this.secondaryMuscleGroup,
       required this.equipment,

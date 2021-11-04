@@ -35,7 +35,19 @@ class DBProvider{
     return await openDatabase(path, version: 1, onOpen: (Database db) async {
       }, onCreate: (Database db, int version) async{
         // Create the tables as specified in our ERD using SQLite,
-        // you guys know this part.
+        // you guys know this part. Creates the table when creating the 
+        // db.
+        await db.execute(
+          'CREATE TABLE Exercise (ex_id INTEGER PRIMARY KEY, ex_title INTEGER 
+          'FOREIGN KEY, m_id INTEGER FOREIGN KEY, ex_secondary_muscleGroup 
+          'TEXT, eq_id INTEGER FOREIGN KEY, ex_difficulty INTEGER)');
+
+          ('CREATE TABLE MuscleGroup (m_id INTEGER PRIMARY KEY, m_name TEXT)');
+
+          ('CREATE TABLE equipment (eq_id INTEGER PRIMARY KEY, eq_name TEXT)');
+
+          ('CREATE TABLE title (t_id INTEGER PRIMARY KEY, t_name TEXT)');
+
       }
   }
 

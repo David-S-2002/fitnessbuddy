@@ -39,8 +39,8 @@ class DBProvider{
         // you guys know this part. Creates the table when creating the 
         // db.
         await db.execute(
-          'CREATE TABLE Exercise (exerciseName STRING, exerciseID' + 
-          ' INTEGER PRIMARY KEY, muscleGroup STRING, secondaryMuscleGroup' + 
+          'CREATE TABLE Exercise (exerciseID INTEGER PRIMARY KEY,' +
+          ' exerciseName STRING, muscleGroup STRING, secondaryMuscleGroup' + 
           ' STRING, equipment STRING, difficulty INTEGER)');
 
           ('CREATE TABLE MuscleGroup (mucleGroupID INTEGER PRIMARY KEY,' +
@@ -54,29 +54,39 @@ class DBProvider{
   }
 
   // Exercise is the data model in exercise.dart
-  insertExercise(Exercise exercise) async{
+  Future<int> insertExercise(Exercise exercise) async{
     // db.insert('exercise', exercise.toJson())
-    DBProvider db = await this._database;
-    var result = await db.insert(exercise, exercise.toMap());
+    var result = await db.insert("Exercise", exercise.toJson());
   }
 
-  getAllExercises() async{
+  Future<List> getAllExercises() async{
+    var result = await db.query("Exercise", columns: ["exerciseID",  
+    " exerciseName", "muscleGroup", "secondaryMuscleGroup", "equipment",
+    " difficulty"]);
 
+    return result.toJson();
   }
 
-  getExercise(int exerciseId) async{
+  Future<Exercise> getExercise(int exerciseId) async{
+    List<Json> results = await db.query("Exercise", 
+    columns: ["exerciseID", "exerciseName", "muscleGroup",
+    "secondaryMuscleGroup", "equipment", "difficulty"],
+    where: 'exerciseID = ?',
+    whereArgs: [exerciseID]);
 
+    if (results.length > 0) {
+      return new Exercise.fromJson(results.first);
+    }
+    return null;
   }
 
-  updateExercise(Exercise exercise) async{
-    var db = await this._database;
-    var result = await db.update
-    (exercise, exercise.toMap(), where: [exerciseID]);
+  Future<int> updateExercise(Exercise exercise) async{
+    return await db.update("Exercise", exercise.toJson(), where: "exerciseID" +
+    " = ?", whereArgs: [exerciseID]);
   }
 
-  deleteExercise(int exerciseId) async{
-    var db = await this._database;
-    int result = await db.rawDelete ('DELETE FROM Exercise ' +
-    'WHERE exerciseID = exerciseID');
+  Future<int> deleteExercise(int exerciseId) async {
+    return await db.delete("Exercise", where: "exerciseID = ?",
+    whereArgs: [exerciseID]);
   }
 }

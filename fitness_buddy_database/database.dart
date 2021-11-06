@@ -26,6 +26,7 @@ class DBProvider{
 
   // open and create the DB
   initDB() async {
+
     // Access the directory where documents for this app are stored
     Directory documentsDir = await getApplicationDocumentsDirectory();
 
@@ -38,22 +39,25 @@ class DBProvider{
         // you guys know this part. Creates the table when creating the 
         // db.
         await db.execute(
-          'CREATE TABLE Exercise (ex_id INTEGER PRIMARY KEY, ex_title INTEGER 
-          'FOREIGN KEY, m_id INTEGER FOREIGN KEY, ex_secondary_muscleGroup 
-          'TEXT, eq_id INTEGER FOREIGN KEY, ex_difficulty INTEGER)');
+          'CREATE TABLE Exercise (exerciseName STRING, exerciseID' + 
+          ' INTEGER PRIMARY KEY, muscleGroup STRING, secondaryMuscleGroup' + 
+          ' STRING, equipment STRING, difficulty INTEGER)');
 
-          ('CREATE TABLE MuscleGroup (m_id INTEGER PRIMARY KEY, m_name TEXT)');
+          ('CREATE TABLE MuscleGroup (mucleGroupID INTEGER PRIMARY KEY,' +
+          ' muscleGroup_name TEXT)');
 
           ('CREATE TABLE equipment (eq_id INTEGER PRIMARY KEY, eq_name TEXT)');
 
           ('CREATE TABLE title (t_id INTEGER PRIMARY KEY, t_name TEXT)');
-
+        });
       }
   }
 
   // Exercise is the data model in exercise.dart
   insertExercise(Exercise exercise) async{
     // db.insert('exercise', exercise.toJson())
+    DBProvider db = await this._database;
+    var result = await db.insert(exercise, exercise.toMap());
   }
 
   getAllExercises() async{
@@ -65,10 +69,14 @@ class DBProvider{
   }
 
   updateExercise(Exercise exercise) async{
-
+    var db = await this._database;
+    var result = await db.update
+    (exercise, exercise.toMap(), where: [exerciseID]);
   }
 
   deleteExercise(int exerciseId) async{
-
+    var db = await this._database;
+    int result = await db.rawDelete ('DELETE FROM Exercise ' +
+    'WHERE exerciseID = exerciseID');
   }
 }

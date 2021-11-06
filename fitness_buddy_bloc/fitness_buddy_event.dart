@@ -15,7 +15,7 @@ class GenerateWorkout extends FitnessBuddyEvent {
       required this.muscleGroup,
       required this.difficulty});
 
-  final DateTime workoutTime;
+  final int workoutTime;
   final MuscleGroup muscleGroup;
   final Difficulty difficulty;
 

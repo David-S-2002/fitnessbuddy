@@ -7,13 +7,14 @@ import 'barrel.dart';
 import 'models.dart';
 
 List<Circuit> algorithm(
-    DateTime workoutTime, MuscleGroup muscleGroup, Difficulty difficulty) {
+    int workoutTime, MuscleGroup muscleGroup, Difficulty difficulty) {
   List<Circuit> circuits = [];
+
+  int numCircuits = workoutTime / 5 as int;
+  print("numCircuits: " + numCircuits.toString());
 
   // Calculate how many circuits, how long each circuit is (totalCircuitTime), and
   // how much rest time there will be in between
-
-  // Simple formula we could use for now: numCircuits = workoutTime / 5
 
   // Determine how many times each circuit will be repeated
   // Determine how to split up a single iteration of a circuit into exercises

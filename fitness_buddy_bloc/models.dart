@@ -7,13 +7,6 @@
 enum MuscleGroup { arms, shoulders, chest, back, abs, legs }
 enum Difficulty { easy, medium, hard }
 
-// For each exercise, I was thinking we will display on the screen the time duration, the
-// equipment required, and the muscle group(s) exercised.
-
-// I was thinking that difficulty will be determined by the amount of rest time
-// in the entire workout?
-// Also we could use heavier dumbbells for more difficulty. This would change the equipment.
-
 // IDK if we should have a primary muscle group and a secondary muscle group,
 // instead of a List<MuscleGroup>
 
@@ -34,8 +27,6 @@ class Exercise {
 
 // A Circuit is a group of exercises that are performed all in a row without
 // rest time in between, and then rest time is given at the end.
-// A strength workout often consists of several circuits (or EMOMs or AMRAPs -
-// we can discuss if we want to do that).
 // The total time will be the time of all the exercises (we already know this
 // from the List<Exercise>) plus the rest time.
 // The difficulty will determine the rest time.

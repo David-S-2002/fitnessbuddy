@@ -109,7 +109,7 @@ class DBProvider {
     final db = await database;
 
     return await db.update("Exercise", exercise.toJson(),
-        where: "exerciseID" + " = ?", whereArgs: [exerciseID]);
+        where: "exerciseID = ?", whereArgs: [exerciseID]);
   }
 
   // Delete an exercise

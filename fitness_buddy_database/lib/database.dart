@@ -10,7 +10,7 @@ class DBProvider {
   DBProvider._();
   static final DBProvider db = DBProvider._();
 
-  Database _database;
+  late Database _database;
 
   // Set-up the database
   Future<Database> get database async {
@@ -63,11 +63,14 @@ class DBProvider {
   // Exercise is the data model in exercise.dart
   Future<int> insertExercise(Exercise exercise) async {
     // db.insert('exercise', exercise.toJson())
+    final Database db = await database;
     var result = await db.insert("Exercise", exercise.toJson());
+    return result;
   }
 
   Future<List> getAllExercises() async {
-    var result = await db.query("Exercise", columns: [
+    final Database db = await database;
+    List<Map<String, Object?>> result = await db.query("Exercise", columns: [
       "exerciseID",
       " exerciseName",
       "muscleGroup",
@@ -76,11 +79,12 @@ class DBProvider {
       " difficulty"
     ]);
 
-    return result.toJson();
+    return result;
   }
 
-  Future<Exercise> getExercise(int exerciseId) async {
-    List<Json> results = await db.query("Exercise",
+  Future<Exercise?> getExercise(int exerciseId) async {
+    final Database db = await database;
+    List<Map<String, Object?>> results = await db.query("Exercise",
         columns: [
           "exerciseID",
           "exerciseName",
@@ -92,18 +96,22 @@ class DBProvider {
         where: 'exerciseID = ?',
         whereArgs: [exerciseID]);
 
-    if (results.length > 0) {
-      return new Exercise.fromJson(results.first);
+    if (results.isNotEmpty) {
+      return Exercise.fromJson(results.first);
     }
     return null;
   }
 
   Future<int> updateExercise(Exercise exercise) async {
+    final Database db = await database;
+
     return await db.update("Exercise", exercise.toJson(),
         where: "exerciseID" + " = ?", whereArgs: [exerciseID]);
   }
 
   Future<int> deleteExercise(int exerciseId) async {
+    final Database db = await database;
+
     return await db
         .delete("Exercise", where: "exerciseID = ?", whereArgs: [exerciseID]);
   }

@@ -61,18 +61,19 @@ class DBProvider {
   }
 
   // Exercise is the data model in exercise.dart
-  Future<int> insertExercise(Exercise exercise) async {
-    // db.insert('exercise', exercise.toJson())
-    final Database db = await database;
+  // Insert a new exercise using the insert method
+  Future<Exercise> insertExercise(Exercise exercise) async {
+    final db = await database;
     var result = await db.insert("Exercise", exercise.toJson());
     return result;
   }
 
+  // Display all the exercises
   Future<List> getAllExercises() async {
-    final Database db = await database;
+    final db = await database;
     List<Map<String, Object?>> result = await db.query("Exercise", columns: [
       "exerciseID",
-      " exerciseName",
+      "exerciseName",
       "muscleGroup",
       "secondaryMuscleGroup",
       "equipment",
@@ -82,8 +83,9 @@ class DBProvider {
     return result;
   }
 
+  // Get one exercise based on exercise ID
   Future<Exercise?> getExercise(int exerciseId) async {
-    final Database db = await database;
+    final db = await database;
     List<Map<String, Object?>> results = await db.query("Exercise",
         columns: [
           "exerciseID",
@@ -102,15 +104,17 @@ class DBProvider {
     return null;
   }
 
+  // Update an exercise
   Future<int> updateExercise(Exercise exercise) async {
-    final Database db = await database;
+    final db = await database;
 
     return await db.update("Exercise", exercise.toJson(),
         where: "exerciseID" + " = ?", whereArgs: [exerciseID]);
   }
 
+  // Delete an exercise
   Future<int> deleteExercise(int exerciseId) async {
-    final Database db = await database;
+    final db = await database;
 
     return await db
         .delete("Exercise", where: "exerciseID = ?", whereArgs: [exerciseID]);

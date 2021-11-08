@@ -27,9 +27,9 @@ class DBProvider {
     Directory documentsDir = await getApplicationDocumentsDirectory();
 
     // path of database: it's inside that directory
-    String path = join(documentsDir.path, "fitnessbuddy.db");
+    String path = join(documentsDir.path, "app.db");
 
-    return await openDatabase(path, version: 1, onOpen: (db) async {},
+    return await openDatabase(path, version: 1, onOpen: (Database db) async {},
         onCreate: (Database db, int version) async {
       // Create the tables as specified in our ERD using SQLite.
       // Creates the tables when creating the db.
@@ -267,10 +267,13 @@ class DBProvider {
 
   // Exercise is the data model in exercise.dart
   // Insert a new exercise using the insert method
+  // Followed the format of:
+  // https://pub.dev/packages/sqflite
   Future<Exercise> insertExercise(Exercise exercise) async {
     final db = await database;
-    var result = await db.insert("Exercise", exercise.toJson());
-    return result;
+    int result = await db.insert("Exercise", exercise.toJson());
+    exercise.exerciseId = result;
+    return exercise;
   }
 
   // Display all the exercises
@@ -301,7 +304,7 @@ class DBProvider {
           "difficulty"
         ],
         where: 'exerciseID = ?',
-        whereArgs: [exerciseID]);
+        whereArgs: [exerciseId]);
 
     if (results.isNotEmpty) {
       return Exercise.fromJson(results.first);
@@ -314,7 +317,7 @@ class DBProvider {
     final db = await database;
 
     return await db.update("Exercise", exercise.toJson(),
-        where: "exerciseID = ?", whereArgs: [exercise.exerciseID]);
+        where: "exerciseID = ?", whereArgs: [exercise.exerciseId]);
   }
 
   // Delete an exercise
@@ -322,6 +325,6 @@ class DBProvider {
     final db = await database;
 
     return await db
-        .delete("Exercise", where: "exerciseID = ?", whereArgs: [exerciseID]);
+        .delete("Exercise", where: "exerciseID = ?", whereArgs: [exerciseId]);
   }
 }

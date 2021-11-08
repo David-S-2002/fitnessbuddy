@@ -282,7 +282,7 @@ class DBProvider {
       "muscleGroup",
       "secondaryMuscleGroup",
       "equipment",
-      " difficulty"
+      "difficulty"
     ]);
 
     return result;
@@ -314,7 +314,7 @@ class DBProvider {
     final db = await database;
 
     return await db.update("Exercise", exercise.toJson(),
-        where: "exerciseID = ?", whereArgs: [exerciseID]);
+        where: "exerciseID = ?", whereArgs: [exercise.exerciseID]);
   }
 
   // Delete an exercise

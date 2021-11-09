@@ -8,22 +8,18 @@ part of 'exercise.dart';
 
 Exercise _$ExerciseFromJson(Map<String, dynamic> json) => Exercise(
       exerciseName: json['exerciseName'] as String,
+      exerciseId: json['exerciseId'] as int,
       muscleGroup: json['muscleGroup'] as String,
       secondaryMuscleGroup: json['secondaryMuscleGroup'] as String?,
       equipment: json['equipment'] as String,
-      difficulty: $enumDecode(_$DifficultyEnumMap, json['difficulty']),
+      difficulty: json['difficulty'] as int,
     );
 
 Map<String, dynamic> _$ExerciseToJson(Exercise instance) => <String, dynamic>{
       'exerciseName': instance.exerciseName,
+      'exerciseId': instance.exerciseId,
       'muscleGroup': instance.muscleGroup,
       'secondaryMuscleGroup': instance.secondaryMuscleGroup,
       'equipment': instance.equipment,
-      'difficulty': _$DifficultyEnumMap[instance.difficulty],
+      'difficulty': instance.difficulty,
     };
-
-const _$DifficultyEnumMap = {
-  Difficulty.easy: 'easy',
-  Difficulty.medium: 'medium',
-  Difficulty.hard: 'hard',
-};

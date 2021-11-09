@@ -14,27 +14,22 @@ import 'package:json_serializable/json_serializable.dart';
 
 part 'exercise.g.dart';
 
-enum Difficulty { easy, medium, hard }
-
 @JsonSerializable()
 class Exercise {
   String exerciseName;
-  //int exerciseId;
+  int exerciseId;
   String muscleGroup;
   String? secondaryMuscleGroup;
   String equipment;
-  Difficulty difficulty;
+  int difficulty;
 
   Exercise(
       {required this.exerciseName,
-      //required this.exerciseId,
+      required this.exerciseId,
       required this.muscleGroup,
       required this.secondaryMuscleGroup,
       required this.equipment,
       required this.difficulty});
-
-  // Exercise convertDBModelToRepoModel(db.Exercise dbExercise) {
-  // }
 
   // _$ExerciseFromJson() is a function that will be in the .g file
   factory Exercise.fromJson(Map<String, dynamic> json) =>

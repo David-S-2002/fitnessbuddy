@@ -6,7 +6,7 @@ part of 'exercise.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Exercise _$ExerciseFromJson(Map<String, dynamic> json) => Exercise(
+RepoExercise _$RepoExerciseFromJson(Map<String, dynamic> json) => RepoExercise(
       exerciseName: json['exerciseName'] as String,
       exerciseId: json['exerciseId'] as int,
       muscleGroup: json['muscleGroup'] as String,
@@ -15,7 +15,8 @@ Exercise _$ExerciseFromJson(Map<String, dynamic> json) => Exercise(
       difficulty: json['difficulty'] as int,
     );
 
-Map<String, dynamic> _$ExerciseToJson(Exercise instance) => <String, dynamic>{
+Map<String, dynamic> _$RepoExerciseToJson(RepoExercise instance) =>
+    <String, dynamic>{
       'exerciseName': instance.exerciseName,
       'exerciseId': instance.exerciseId,
       'muscleGroup': instance.muscleGroup,

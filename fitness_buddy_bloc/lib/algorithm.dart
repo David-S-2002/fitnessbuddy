@@ -1,10 +1,10 @@
-// When the GenerateWorkout event gets sent to the BLOC,
-// the BLOC will call the algorithm, which will return a workout
-// (list of Circuits) based on these parameters. The BLOC will pass
-// the parameters to the algorithm.
+import 'package:fitness_buddy_bloc/barrel.dart';
 
 import 'barrel.dart';
+import 'barrel.dart';
 import 'models.dart';
+
+// TODO: Map for muscle groups and difficulties
 
 // Using the repository, get all the exercises that fit the muscle group
 // and the difficulty we want
@@ -13,11 +13,11 @@ import 'models.dart';
 
 // Once an exercise has been chosen, remove it from the list of possible exercises
 
-// I might want to check if the workout time is divisible by 5.
 Future<List<Circuit>> algorithm(int workoutTime, MuscleGroup muscleGroup,
     Difficulty difficulty, ExerciseRepository repository) async {
   List<Circuit> circuits = [];
-  List<BLOCExercise> allExercises = [];
+  List<RepoExercise> repoExercises = [];
+  List<BLOCExercise> blocExercises = [];
   double circuitTimePlusRest =
       5; // time per circuit, plus the rest time at the end
   double restTime = 0.5; // time to rest BETWEEN circuits
@@ -51,13 +51,14 @@ Future<List<Circuit>> algorithm(int workoutTime, MuscleGroup muscleGroup,
         restTime: restInCircuit, exercises: [], timesRepeated: timesRepeated));
   }
 
-  // get the exercises:
-  // call the function in the repository that selects exercises by muscle group
-  // and difficulty. Use "await"
+  // get all the possible exercises from the repository:
+  repoExercises = await repository.selectByMuscleGroupAndDifficulty(
+      muscleGroup.toString(), intDifficulty);
 
-  // allExercises = (await repository.selectByMuscleGroupAndDifficulty(
-  //         muscleGroup.toString(), intDifficulty))
-  //     .convertRepoExerciseToBlocExercise();
+  // convert these to BLOCExercises
+  for (int i = 0; i < repoExercises.length; i++) {
+    blocExercises[i] = repoExercises[i].convertRepoExerciseToBlocExercise();
+  }
 
   // Populate each circuit by picking randomly from these exercises.
 

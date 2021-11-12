@@ -5,26 +5,26 @@ class ExerciseRepository {
 
   ExerciseRepository({required this.database});
 
-  Future<List<Exercise>> selectByMuscleGroupAndDifficulty(
+  Future<List<RepoExercise>> selectByMuscleGroupAndDifficulty(
       String muscleGroup, int difficulty) async {
     // This is temporary until we implement this function.
     // Returning a hardcoded list of exercises for now.
     return [
-      Exercise(
+      RepoExercise(
           difficulty: 3,
           muscleGroup: "Full Body/Integrated",
           secondaryMuscleGroup: null,
           equipment: "barbell",
           exerciseId: 15,
           exerciseName: "Deadlift"),
-      Exercise(
+      RepoExercise(
           difficulty: 2,
           muscleGroup: "Back",
           secondaryMuscleGroup: "Butt/Hips",
           equipment: "Dumbbells",
           exerciseId: 16,
           exerciseName: "Front Squat"),
-      Exercise(
+      RepoExercise(
         exerciseId: 17,
         exerciseName: "Push-up with Single-leg Raise",
         difficulty: 3,
@@ -32,21 +32,21 @@ class ExerciseRepository {
         secondaryMuscleGroup: "Butt/Hips",
         equipment: "None",
       ),
-      Exercise(
+      RepoExercise(
           difficulty: 3,
           muscleGroup: "Full Body/Integrated",
           secondaryMuscleGroup: null,
           equipment: "barbell",
           exerciseId: 18,
           exerciseName: "Push Press"),
-      Exercise(
+      RepoExercise(
           difficulty: 3,
           muscleGroup: "Full Body/Integrated",
           secondaryMuscleGroup: null,
           equipment: "barbell",
           exerciseId: 19,
           exerciseName: "Power Clean"),
-      Exercise(
+      RepoExercise(
           difficulty: 3,
           muscleGroup: "Abs",
           secondaryMuscleGroup: "Butt/Hips",
@@ -56,7 +56,14 @@ class ExerciseRepository {
     ];
   }
 
-  Future<List<Map<String, Object?>>?> getAllExercises() async {
-    return (await database.getAllExercises());
+  Future<List<RepoExercise>> getAllRepoExercises() async {
+    List<Exercise> dbExercises = await database.getAllExercises();
+    List<RepoExercise> repoExercises = [];
+
+    for (int i = 0; i < dbExercises.length; i++) {
+      repoExercises[i].convertDbExerciseToRepoExercise(dbExercises[i]);
+    }
+
+    return repoExercises;
   }
 }

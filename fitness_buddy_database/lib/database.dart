@@ -277,9 +277,9 @@ class DBProvider {
   }
 
   // Display all the exercises
-  Future<List<Map<String, Object?>>> getAllExercises() async {
+  Future<List<Exercise>> getAllExercises() async {
     final db = await database;
-    List<Map<String, Object?>> result = await db.query("Exercise", columns: [
+    List<Map<String, dynamic>> result = await db.query("Exercise", columns: [
       "exerciseID",
       "exerciseName",
       "muscleGroup",
@@ -288,7 +288,14 @@ class DBProvider {
       "difficulty"
     ]);
 
-    return result;
+    List<Exercise> exerciseList = [];
+
+    for (int i = 0; i < result.length; i++) {
+      // convert the list of maps to a list of exercises
+      exerciseList[i] = Exercise.fromJson(result[i]);
+    }
+
+    return exerciseList;
   }
 
   // Get one exercise based on exercise ID

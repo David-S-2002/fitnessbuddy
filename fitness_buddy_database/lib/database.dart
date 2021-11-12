@@ -277,7 +277,7 @@ class DBProvider {
   }
 
   // Display all the exercises
-  Future<List> getAllExercises() async {
+  Future<List<Map<String, Object?>>> getAllExercises() async {
     final db = await database;
     List<Map<String, Object?>> result = await db.query("Exercise", columns: [
       "exerciseID",

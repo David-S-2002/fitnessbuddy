@@ -1,8 +1,7 @@
-import 'package:sqflite/sqflite.dart';
-
 import 'algorithm.dart';
 import 'barrel.dart';
 import 'models.dart';
+import 'package:fitness_buddy_database/fitness_buddy_database.dart';
 
 void main() {
   DBProvider database = DBProvider.db;

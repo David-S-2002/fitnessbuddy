@@ -1,15 +1,28 @@
-enum MuscleGroup { arms, shoulders, chest, back, abs, legs }
-enum Difficulty { easy, medium, hard }
+import 'barrel.dart';
 
-class Exercise {
+enum Difficulty { easy, medium, hard, uninitialized }
+enum MuscleGroup {
+  abs,
+  arms,
+  back,
+  buttAndHips,
+  chest,
+  fullBodyOrIntegrated,
+  legsCalvesAndShins,
+  shoulders,
+  legsThighs,
+  uninitialized
+}
+
+class BLOCExercise {
   String exerciseName;
   double exerciseTime;
   String equipment;
   MuscleGroup primaryMuscleGroup;
-  MuscleGroup secondaryMuscleGroup;
+  MuscleGroup? secondaryMuscleGroup;
   Difficulty difficulty;
 
-  Exercise(
+  BLOCExercise(
       {required this.exerciseName,
       required this.exerciseTime,
       required this.equipment,
@@ -31,6 +44,25 @@ class Exercise {
       secondaryMuscleGroup.toString() +
       ". Difficulty: " +
       difficulty.toString();
+
+  // BLOCExercise convertToBlocExercise(ExerciseRepository repository) {
+  //   BLOCExercise blocExercise = BLOCExercise(
+  //       exerciseName: exercise.exerciseName,
+  //       exerciseTime: -1,
+  //       equipment: exercise.equipment,
+  //       primaryMuscleGroup: MuscleGroup.uninitialized,
+  //       secondaryMuscleGroup: MuscleGroup.uninitialized,
+  //       difficulty: Difficulty.uninitialized);
+  //   if (exercise.difficulty == 1) {
+  //     blocExercise.difficulty = Difficulty.easy;
+  //   } else if (exercise.difficulty == 2) {
+  //     blocExercise.difficulty = Difficulty.medium;
+  //   } else if (exercise.difficulty == 3) {
+  //     blocExercise.difficulty = Difficulty.hard;
+  //   }
+  //   if (exercise.primaryMuscleGroup == MuscleGroup.abs) {}
+  //   return blocExercise;
+  // }
 }
 
 // A Circuit is a group of exercises that are performed all in a row without
@@ -40,7 +72,7 @@ class Exercise {
 // The difficulty will determine the rest time.
 
 class Circuit {
-  List<Exercise> exercises;
+  List<BLOCExercise> exercises;
   double restTime;
   int timesRepeated;
 

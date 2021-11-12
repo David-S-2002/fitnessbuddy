@@ -4,6 +4,7 @@
 // routes to workout_page.dart
 
 import 'package:flutter/material.dart';
+import 'package:bloc/bloc.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -40,14 +41,15 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(title: Text('Dropdown Menu'), centerTitle: true),
       body: Center(
-        child: Container(
-          margin: EdgeInsets.all(16),
-          padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: Colors.black, width: 4),
-          ), //BoxDecoration
-          child: DropdownButtonHideUnderline(
+          child: Container(
+        margin: EdgeInsets.all(16),
+        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: Colors.black, width: 4),
+        ), //BoxDecoration
+        child: Column(children: [
+          DropdownButtonHideUnderline(
             child: DropdownButton<String>(
               value: value,
               iconSize: 36,
@@ -56,9 +58,21 @@ class _MainPageState extends State<MainPage> {
               items: items.map(buildMenuItem).toList(),
               onChanged: (value) => setState(() => this.value = value),
             ), //Drop down button
-          ), //DropdownButtonHideUnderline
-        ), //center
-      )); //scaffold
+          ),
+          const ElevatedButton(
+              // when pressed, send an event to the bloc
+              // use Navigator to route to the other page
+              // This is just a test workout. You would use the difficulty, time
+              //, etc. selected from the dropdown menus
+              onPressed:
+                  null, //context.read<FitnessBuddyBloc>.add(GenerateWorkout(
+              //     difficulty: Difficulty.easy,
+              //     time: 20,
+              //     muscleGroup: MuscleGroup.abs)),
+              child: Text("Generate Workout"))
+        ] //DropdownButtonHideUnderline
+            ), //center
+      ))); //scaffold
 
   DropdownMenuItem<String> buildMenuItem(String item) =>
       DropdownMenuItem(value: item, child: Text(item));

@@ -3,28 +3,10 @@
 // "Generate workout" button at the bottom of the page. Pressing this button
 // routes to workout_page.dart
 
+import 'package:fitnessbuddy/widgets/dropdown_menu.dart';
+import 'package:fitnessbuddy/workout_page.dart';
 import 'package:flutter/material.dart';
 import 'package:bloc/bloc.dart';
-
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    print("Printing to see where this message goes...");
-    print("Making changes...");
-
-    return Scaffold(
-        appBar: AppBar(title: const Text("Fitness Buddy")),
-        body: const Center(
-            child: Text("This is the home page for FitnessBuddy")));
-  }
-}
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -34,46 +16,54 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  final items = ['Time Duration', 'Muscle Groups', 'Difficulty Level'];
+  //final items = ['Time Duration', 'Muscle Groups', 'Difficulty Level'];
   String? value;
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-      appBar: AppBar(title: Text('Dropdown Menu'), centerTitle: true),
-      body: Center(
-          child: Container(
-        margin: EdgeInsets.all(16),
-        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Colors.black, width: 4),
-        ), //BoxDecoration
-        child: Column(children: [
-          DropdownButtonHideUnderline(
-            child: DropdownButton<String>(
-              value: value,
-              iconSize: 36,
-              icon: Icon(Icons.arrow_drop_down, color: Colors.black),
-              isExpanded: true,
-              items: items.map(buildMenuItem).toList(),
-              onChanged: (value) => setState(() => this.value = value),
-            ), //Drop down button
-          ),
-          const ElevatedButton(
-              // when pressed, send an event to the bloc
-              // use Navigator to route to the other page
-              // This is just a test workout. You would use the difficulty, time
-              //, etc. selected from the dropdown menus
-              onPressed:
-                  null, //context.read<FitnessBuddyBloc>.add(GenerateWorkout(
-              //     difficulty: Difficulty.easy,
-              //     time: 20,
-              //     muscleGroup: MuscleGroup.abs)),
-              child: Text("Generate Workout"))
-        ] //DropdownButtonHideUnderline
-            ), //center
-      ))); //scaffold
+  Widget build(BuildContext context) {
+    print("In build method of main page");
+    return Scaffold(
+        appBar: AppBar(title: const Text('Home Page'), centerTitle: true),
+        body: Center(
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            const Text("Difficulty Level"),
+            const DropdownMenu(items: ["Easy", "Medium", "Hard"]),
+            const Text("Muscle Group"),
+            const DropdownMenu(items: [
+              "Abs",
+              "Arms",
+              "Back",
+              "Butt/Hips",
+              "Chest",
+              "Full Body/Integrated",
+              "Legs - Calves and Shins",
+              "Shoulders",
+              "Legs - Thighs"
+            ]),
+            const Text("Time Duration"),
+            const DropdownMenu(items: [
+              "5 minutes",
+              "10 minutes",
+              "15 minutes",
+              "20 minutes",
+              "25 minutes",
+              "30 minutes"
+            ]),
+            ElevatedButton(
+                // when pressed, send an event to the bloc
+                // use Navigator to route to the other page
+                // This is just a test workout. You would use the difficulty, time
+                //, etc. selected from the dropdown menus
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const WorkoutPage()));
+                },
+                child: const Text("Generate Workout"))
+          ] //DropdownButtonHideUnderline
+              ), //center
+        ));
+  } //scaffold
 
-  DropdownMenuItem<String> buildMenuItem(String item) =>
-      DropdownMenuItem(value: item, child: Text(item));
 }

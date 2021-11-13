@@ -124,8 +124,8 @@ file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.o
 file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/fixnum-1.0.0/lib/
 flutter_bloc
 2.12
-file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_bloc-7.3.1/
-file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_bloc-7.3.1/lib/
+file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_bloc-7.3.3/
+file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_bloc-7.3.3/lib/
 flutter_lints
 2.12
 file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_lints-1.0.4/
@@ -346,4 +346,16 @@ flutter_test
 2.12
 file:///C:/Users/david/OneDrive/Desktop/flutter/packages/flutter_test/
 file:///C:/Users/david/OneDrive/Desktop/flutter/packages/flutter_test/lib/
+fitness_buddy_bloc
+2.12
+file:///C:/Users/david/OneDrive/Desktop/Project/fitnessbuddy/fitness_buddy_bloc/
+file:///C:/Users/david/OneDrive/Desktop/Project/fitnessbuddy/fitness_buddy_bloc/lib/
+fitness_buddy_database
+2.12
+file:///C:/Users/david/OneDrive/Desktop/Project/fitnessbuddy/fitness_buddy_database/
+file:///C:/Users/david/OneDrive/Desktop/Project/fitnessbuddy/fitness_buddy_database/lib/
+fitness_buddy_repository
+2.12
+file:///C:/Users/david/OneDrive/Desktop/Project/fitnessbuddy/fitness_buddy_repository/
+file:///C:/Users/david/OneDrive/Desktop/Project/fitnessbuddy/fitness_buddy_repository/lib/
 2

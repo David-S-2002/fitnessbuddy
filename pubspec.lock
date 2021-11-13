@@ -204,6 +204,27 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.1.2"
+  fitness_buddy_bloc:
+    dependency: "direct dev"
+    description:
+      path: fitness_buddy_bloc
+      relative: true
+    source: path
+    version: "0.0.1"
+  fitness_buddy_database:
+    dependency: "direct dev"
+    description:
+      path: fitness_buddy_database
+      relative: true
+    source: path
+    version: "0.0.1"
+  fitness_buddy_repository:
+    dependency: "direct dev"
+    description:
+      path: fitness_buddy_repository
+      relative: true
+    source: path
+    version: "0.0.1"
   fixnum:
     dependency: transitive
     description:
@@ -222,7 +243,7 @@ packages:
       name: flutter_bloc
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "7.3.1"
+    version: "7.3.3"
   flutter_lints:
     dependency: "direct dev"
     description:

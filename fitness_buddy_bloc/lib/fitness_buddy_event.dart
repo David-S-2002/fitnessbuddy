@@ -16,8 +16,8 @@ class GenerateWorkout extends FitnessBuddyEvent {
       required this.difficulty});
 
   final int workoutTime;
-  final MuscleGroup muscleGroup;
-  final Difficulty difficulty;
+  final String muscleGroup;
+  final int difficulty;
 
   @override
   List<Object> get props => [workoutTime, muscleGroup, difficulty];

@@ -176,6 +176,24 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "fitness_buddy_bloc",
+      "rootUri": "../fitness_buddy_bloc",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "fitness_buddy_database",
+      "rootUri": "../fitness_buddy_database",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "fitness_buddy_repository",
+      "rootUri": "../fitness_buddy_repository",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "fixnum",
       "rootUri": "file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/fixnum-1.0.0",
       "packageUri": "lib/",
@@ -189,7 +207,7 @@
     },
     {
       "name": "flutter_bloc",
-      "rootUri": "file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_bloc-7.3.1",
+      "rootUri": "file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_bloc-7.3.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -524,7 +542,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-11-07T04:28:32.330418Z",
+  "generated": "2021-11-12T23:41:18.448567Z",
   "generator": "pub",
   "generatorVersion": "2.14.2"
 }

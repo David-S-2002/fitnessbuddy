@@ -1,26 +1,10 @@
-import 'barrel.dart';
-
-enum Difficulty { easy, medium, hard, uninitialized }
-enum MuscleGroup {
-  abs,
-  arms,
-  back,
-  buttAndHips,
-  chest,
-  fullBodyOrIntegrated,
-  legsCalvesAndShins,
-  shoulders,
-  legsThighs,
-  uninitialized
-}
-
 class BLOCExercise {
   String exerciseName;
   double exerciseTime;
   String equipment;
-  MuscleGroup primaryMuscleGroup;
-  MuscleGroup? secondaryMuscleGroup;
-  Difficulty difficulty;
+  String primaryMuscleGroup;
+  String? secondaryMuscleGroup;
+  int difficulty;
 
   BLOCExercise(
       {required this.exerciseName,
@@ -44,25 +28,6 @@ class BLOCExercise {
       secondaryMuscleGroup.toString() +
       ". Difficulty: " +
       difficulty.toString();
-
-  // BLOCExercise convertToBlocExercise(ExerciseRepository repository) {
-  //   BLOCExercise blocExercise = BLOCExercise(
-  //       exerciseName: exercise.exerciseName,
-  //       exerciseTime: -1,
-  //       equipment: exercise.equipment,
-  //       primaryMuscleGroup: MuscleGroup.uninitialized,
-  //       secondaryMuscleGroup: MuscleGroup.uninitialized,
-  //       difficulty: Difficulty.uninitialized);
-  //   if (exercise.difficulty == 1) {
-  //     blocExercise.difficulty = Difficulty.easy;
-  //   } else if (exercise.difficulty == 2) {
-  //     blocExercise.difficulty = Difficulty.medium;
-  //   } else if (exercise.difficulty == 3) {
-  //     blocExercise.difficulty = Difficulty.hard;
-  //   }
-  //   if (exercise.primaryMuscleGroup == MuscleGroup.abs) {}
-  //   return blocExercise;
-  // }
 }
 
 // A Circuit is a group of exercises that are performed all in a row without
@@ -72,21 +37,29 @@ class BLOCExercise {
 // The difficulty will determine the rest time.
 
 class Circuit {
+  int numExercises;
   List<BLOCExercise> exercises;
-  double restTime;
+  double restTimeInCircuit;
+  double restTimeAfterCircuit;
   int timesRepeated;
 
   Circuit(
       {required this.exercises,
-      required this.restTime,
-      required this.timesRepeated});
+      required this.numExercises,
+      required this.restTimeInCircuit,
+      required this.timesRepeated,
+      required this.restTimeAfterCircuit});
 
   @override
   String toString() =>
-      "Circuit: Exercises: " +
+      "Circuit: Number of exercises: " +
+      numExercises.toString() +
+      "Exercises: " +
       exercises.toString() +
-      ". Rest time: " +
-      restTime.toString() +
+      ". Rest time in circuit: " +
+      restTimeInCircuit.toString() +
+      ". Rest time after circuit: " +
+      restTimeAfterCircuit.toString() +
       ". Times repeated: " +
       timesRepeated.toString();
 }

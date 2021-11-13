@@ -53,6 +53,12 @@ dev_dependencies:
   flutter_lints: ^1.0.0
   build_runner: ^2.0.0
   json_serializable: ^6.0.0
+  fitness_buddy_repository:
+    path: fitness_buddy_repository
+  fitness_buddy_database:
+    path: fitness_buddy_database
+  fitness_buddy_bloc:
+    path: fitness_buddy_bloc
 
 
 

@@ -5,10 +5,25 @@ class ExerciseRepository {
 
   ExerciseRepository({required this.database});
 
+  // only selects by muscle group for now
+  // will need help with selecting by difficulty
   Future<List<RepoExercise>> selectByMuscleGroupAndDifficulty(
       String muscleGroup, int difficulty) async {
-    // This is temporary until we implement this function.
-    // Returning a hardcoded list of exercises for now.
+    List<Exercise>? dbExercises = await database
+        .selectByMuscleGroupAndDifficulty(muscleGroup, difficulty);
+    List<RepoExercise>? repoExercises = [];
+
+    if (dbExercises != null) {
+      for (int i = 0; i < dbExercises.length; i++) {
+        repoExercises[i].convertDbExerciseToRepoExercise(dbExercises[i]);
+      }
+    }
+
+    return repoExercises;
+  }
+
+  Future<List<RepoExercise>> selectByMuscleGroupAndDifficultyHardcoded(
+      String muscleGroup, int difficulty) async {
     return [
       RepoExercise(
           difficulty: 3,

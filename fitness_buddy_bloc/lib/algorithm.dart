@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'barrel.dart';
 
 // Fill the time intervals we have determined with the exercises, randomly chosen
@@ -16,6 +18,8 @@ Future<List<Circuit>> algorithm(int workoutTime, String muscleGroup,
   double timePerExercise; // duration of one exercise
   double restInCircuit; // rest time WITHIN the circuit
   int numExercisesInCircuit;
+  Random random = Random();
+  int randNum;
 
   // Initialize these to different values depending on the difficulty:
   if (difficulty == 3) {
@@ -54,8 +58,15 @@ Future<List<Circuit>> algorithm(int workoutTime, String muscleGroup,
     blocExercises[i] = repoExercises[i].convertRepoExerciseToBlocExercise();
   }
 
-  // Populate each circuit by picking randomly from these exercises.
-  // For now we have circuits with empty exercises
+  for (int i = 0; i < circuits.length; i++) {
+    for (int j = 0; j < circuits[i].exercises.length; j++) {
+      // choose a random exercise from the list of exercises
+      randNum = random.nextInt((blocExercises.length - 1));
+
+      circuits[i].exercises[j] = blocExercises[randNum];
+    }
+  }
+
   print(circuits);
   return circuits;
 }

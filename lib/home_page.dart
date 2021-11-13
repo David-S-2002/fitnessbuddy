@@ -3,10 +3,13 @@
 // "Generate workout" button at the bottom of the page. Pressing this button
 // routes to workout_page.dart
 
+import 'package:fitness_buddy_bloc/barrel.dart';
 import 'package:fitnessbuddy/widgets/dropdown_menu.dart';
 import 'package:fitnessbuddy/workout_page.dart';
 import 'package:flutter/material.dart';
 import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fitness_buddy_bloc/fitness_buddy_bloc.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -22,7 +25,10 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     print("In build method of main page");
-    return Scaffold(
+    return BlocListener<FitnessBuddyBloc, FitnessBuddyState>(listener: (BuildContext context, FitnessBuddyState state){
+      
+    }, child:
+    Scaffold(
         appBar: AppBar(title: const Text('Home Page'), centerTitle: true),
         body: Center(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -59,11 +65,13 @@ class _MainPageState extends State<MainPage> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => const WorkoutPage()));
+                  
+                  BlocProvider.of<FitnessBuddyBloc>.(context).add(const GenerateWorkout(workoutTime: 20, muscleGroup: "Abs", difficulty: 1));
                 },
                 child: const Text("Generate Workout"))
           ] //DropdownButtonHideUnderline
               ), //center
-        ));
+        )));
   } //scaffold
 
 }

@@ -539,10 +539,10 @@
       "name": "fitnessbuddy",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.14"
     }
   ],
-  "generated": "2021-11-12T23:41:18.448567Z",
+  "generated": "2021-11-13T18:23:42.037023Z",
   "generator": "pub",
   "generatorVersion": "2.14.2"
 }

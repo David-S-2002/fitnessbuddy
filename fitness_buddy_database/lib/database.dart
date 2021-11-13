@@ -319,6 +319,34 @@ class DBProvider {
     return null;
   }
 
+  // for now only selects by muscle group. I will need help with this.
+  Future<List<Exercise>?> selectByMuscleGroupAndDifficulty(
+      String muscleGroup, int difficulty) async {
+    final Database db = await database;
+    List<Exercise> exerciseList = [];
+
+    List<Map<String, Object?>> results = await db.query("Exercise",
+        columns: [
+          "exerciseID",
+          "exerciseName",
+          "muscleGroup",
+          "secondaryMuscleGroup",
+          "equipment",
+          "difficulty"
+        ],
+        where: 'muscleGroup = ?',
+        whereArgs: [muscleGroup]);
+
+    if (results.isNotEmpty) {
+      for (int i = 0; i < results.length; i++) {
+        exerciseList[i] = Exercise.fromJson(results[i]);
+      }
+
+      return exerciseList;
+    }
+    return null;
+  }
+
   // Update an exercise
   Future<int> updateExercise(Exercise exercise) async {
     final db = await database;

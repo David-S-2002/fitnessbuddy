@@ -205,21 +205,21 @@ packages:
     source: hosted
     version: "6.1.2"
   fitness_buddy_bloc:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       path: fitness_buddy_bloc
       relative: true
     source: path
     version: "0.0.1"
   fitness_buddy_database:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       path: fitness_buddy_database
       relative: true
     source: path
     version: "0.0.1"
   fitness_buddy_repository:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       path: fitness_buddy_repository
       relative: true

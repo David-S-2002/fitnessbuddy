@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.14.0 <3.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -40,6 +40,12 @@ dependencies:
   path_provider: ^2.0.6
 
   json_annotation: ^4.3.0
+  fitness_buddy_repository:
+    path: fitness_buddy_repository
+  fitness_buddy_database:
+    path: fitness_buddy_database
+  fitness_buddy_bloc:
+    path: fitness_buddy_bloc
 
 dev_dependencies:
   flutter_test:
@@ -53,12 +59,6 @@ dev_dependencies:
   flutter_lints: ^1.0.0
   build_runner: ^2.0.0
   json_serializable: ^6.0.0
-  fitness_buddy_repository:
-    path: fitness_buddy_repository
-  fitness_buddy_database:
-    path: fitness_buddy_database
-  fitness_buddy_bloc:
-    path: fitness_buddy_bloc
 
 
 

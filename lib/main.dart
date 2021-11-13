@@ -10,7 +10,7 @@ void main() {
   ExerciseRepository exerciseRepository =
       ExerciseRepository(database: database);
 
-  runApp(const FitnessBuddy(exerciseRepository: exerciseRepository));
+  runApp(FitnessBuddy(exerciseRepository: exerciseRepository));
 }
 
 class FitnessBuddy extends StatelessWidget {

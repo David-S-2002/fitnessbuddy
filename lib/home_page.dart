@@ -7,10 +7,8 @@ import 'package:fitness_buddy_bloc/barrel.dart';
 import 'package:fitnessbuddy/widgets/dropdown_menu.dart';
 import 'package:fitnessbuddy/workout_page.dart';
 import 'package:flutter/material.dart';
-import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fitness_buddy_bloc/fitness_buddy_bloc.dart';
-import 'dart:ui';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -20,14 +18,14 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  //final items = ['Time Duration', 'Muscle Groups', 'Difficulty Level'];
   String? value;
 
   @override
   Widget build(BuildContext context) {
     print("In build method of main page");
-    return BlocListener<FitnessBuddyBloc, FitnessBuddyState>(
-        listener: (BuildContext context, FitnessBuddyState state) {},
+    return BlocProvider<FitnessBuddyBloc>(
+        create: (BuildContext context) => FitnessBuddyBloc(
+            exerciseRepo: RepositoryProvider.of<ExerciseRepository>(context)),
         child: Scaffold(
             appBar: AppBar(title: const Text('Home Page'), centerTitle: true),
             body: Center(

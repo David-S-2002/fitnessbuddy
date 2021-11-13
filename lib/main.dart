@@ -5,32 +5,50 @@ import 'package:fitness_buddy_bloc/fitness_buddy_bloc.dart';
 import 'package:fitness_buddy_repository/fitness_buddy_repository.dart';
 import 'package:fitness_buddy_database/fitness_buddy_database.dart';
 
+final DBProvider database = DBProvider.db;
+final ExerciseRepository exerciseRepository =
+    ExerciseRepository(database: database);
 void main() {
-  DBProvider database = DBProvider.db;
-  ExerciseRepository exerciseRepository =
-      ExerciseRepository(database: database);
-
-  runApp(FitnessBuddy(exerciseRepository: exerciseRepository));
+  runApp(FitnessBuddyApp(
+      exerciseRepository: exerciseRepository, database: database));
 }
 
-class FitnessBuddy extends StatelessWidget {
-  const FitnessBuddy({Key? key, required this.exerciseRepository})
+class FitnessBuddyApp extends StatelessWidget {
+  const FitnessBuddyApp(
+      {Key? key, required this.exerciseRepository, required this.database})
       : super(key: key);
 
   final ExerciseRepository exerciseRepository;
+  final DBProvider database;
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<FitnessBuddyBloc>(
-        create: (BuildContext context) =>
-            FitnessBuddyBloc(exerciseRepo: exerciseRepository),
-        child: MaterialApp(
-          title: 'FitnessBuddy',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
-          home: const MainPage(),
-        ));
+    return RepositoryProvider.value(
+        value: exerciseRepository,
+        child: BlocProvider(
+            create: (BuildContext context) =>
+                FitnessBuddyBloc(exerciseRepo: exerciseRepository),
+            child: const FitnessBuddyAppView()));
+  }
+}
+
+class FitnessBuddyAppView extends StatefulWidget {
+  const FitnessBuddyAppView({Key? key}) : super(key: key);
+
+  @override
+  _FitnessBuddyAppViewState createState() => _FitnessBuddyAppViewState();
+}
+
+class _FitnessBuddyAppViewState extends State<FitnessBuddyAppView> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'FitnessBuddy',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const MainPage(),
+    );
   }
 }

@@ -50,8 +50,8 @@ class DBProvider {
           [
             1,
             "Ankle Flexion",
-            "Legs",
-            "Calves and Shins",
+            "Legs - Calves and Shins",
+            "none",
             "Resistance Bands",
             1
           ]);

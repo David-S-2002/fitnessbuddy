@@ -1,4 +1,5 @@
 import 'dart:math';
+
 import 'barrel.dart';
 
 // Fill the time intervals we have determined with the exercises, randomly chosen
@@ -39,7 +40,7 @@ Future<List<Circuit>> algorithm(int workoutTime, String muscleGroup,
   }
 
   // Populate the list with numCircuits circuits
-  for (int i = 0; i <= (workoutTime / 5); i++) {
+  for (int i = 0; i <= (workoutTime / 5 as int); i++) {
     circuits.add(Circuit(
         numExercises: numExercisesInCircuit,
         restTimeInCircuit: restInCircuit,
@@ -48,9 +49,7 @@ Future<List<Circuit>> algorithm(int workoutTime, String muscleGroup,
         restTimeAfterCircuit: restTimeBetweenCircuits));
   }
 
-  repository.database = DBProvider.db;
   // get all the possible exercises from the repository:
-
   repoExercises = await repository.selectByMuscleGroupAndDifficulty(
       muscleGroup, difficulty);
 

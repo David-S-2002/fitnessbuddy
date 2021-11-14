@@ -1,18 +1,9 @@
 part of 'fitness_buddy_repository.dart';
 
 class ExerciseRepository {
-  late DBProvider database;
+  DBProvider database;
 
   ExerciseRepository({required this.database});
-
-  Future<void> get repository async {
-    await initRepo();
-  }
-
-  Future<DBProvider> initRepo() async {
-    database = DBProvider.db;
-    return database;
-  }
 
   // only selects by muscle group for now
   // will need help with selecting by difficulty

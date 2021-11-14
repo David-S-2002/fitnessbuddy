@@ -6,16 +6,12 @@ part 'fitness_buddy_event.dart';
 part 'fitness_buddy_state.dart';
 
 class FitnessBuddyBloc extends Bloc<FitnessBuddyEvent, FitnessBuddyState> {
-  FitnessBuddyBloc({
-    required ExerciseRepository exerciseRepo,
-  })  : //_db = DBProvider.db,
-        _exerciseRepo = ExerciseRepository(database: DBProvider.db),
-        super(const FitnessBuddyState()) {
+  FitnessBuddyBloc({required this.exerciseRepo})
+      : super(const FitnessBuddyState()) {
     on<GenerateWorkout>(_onGenerateWorkout);
   }
 
-  //final DBProvider _db;
-  final ExerciseRepository _exerciseRepo;
+  final ExerciseRepository exerciseRepo;
 
   Future<void> _onGenerateWorkout(
       GenerateWorkout event, Emitter<FitnessBuddyState> emit) async {
@@ -26,7 +22,7 @@ class FitnessBuddyBloc extends Bloc<FitnessBuddyEvent, FitnessBuddyState> {
       // if it works, then emit a success state
       emit(state.copyWith(
           circuits: await algorithm(event.workoutTime, event.muscleGroup,
-              event.difficulty, _exerciseRepo),
+              event.difficulty, exerciseRepo),
           status: FitnessBuddyStatus.success));
     } on Exception {
       // something went wrong; emit a failure state

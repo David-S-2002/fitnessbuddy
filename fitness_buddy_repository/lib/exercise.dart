@@ -2,6 +2,7 @@
 // https://github.com/ericgrandt/flutter-streams/blob/master/lib/models/note_model.dart
 
 import 'package:json_annotation/json_annotation.dart';
+import 'package:json_serializable/json_serializable.dart';
 import 'package:fitness_buddy_bloc/barrel.dart';
 import 'package:fitness_buddy_database/exercise.dart';
 

@@ -63,7 +63,7 @@
     },
     {
       "name": "build_runner",
-      "rootUri": "file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/build_runner-2.1.4",
+      "rootUri": "file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/build_runner-2.1.5",
       "packageUri": "lib/",
       "languageVersion": "2.14"
     },
@@ -141,7 +141,7 @@
     },
     {
       "name": "cupertino_icons",
-      "rootUri": "file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.3",
+      "rootUri": "file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -333,7 +333,7 @@
     },
     {
       "name": "path_provider_linux",
-      "rootUri": "file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.1.0",
+      "rootUri": "file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -351,7 +351,7 @@
     },
     {
       "name": "path_provider_windows",
-      "rootUri": "file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.3",
+      "rootUri": "file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.4",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -519,9 +519,9 @@
     },
     {
       "name": "win32",
-      "rootUri": "file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/win32-2.2.10",
+      "rootUri": "file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/win32-2.3.0",
       "packageUri": "lib/",
-      "languageVersion": "2.13"
+      "languageVersion": "2.14"
     },
     {
       "name": "xdg_directories",
@@ -542,7 +542,7 @@
       "languageVersion": "2.14"
     }
   ],
-  "generated": "2021-11-13T22:46:18.798205Z",
+  "generated": "2021-11-14T04:03:33.289696Z",
   "generator": "pub",
   "generatorVersion": "2.14.4"
 }

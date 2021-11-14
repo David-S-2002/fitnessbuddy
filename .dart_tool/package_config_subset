@@ -44,8 +44,8 @@ file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.o
 file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/build_resolvers-2.0.4/lib/
 build_runner
 2.14
-file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/build_runner-2.1.4/
-file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/build_runner-2.1.4/lib/
+file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/build_runner-2.1.5/
+file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/build_runner-2.1.5/lib/
 build_runner_core
 2.14
 file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/build_runner_core-7.2.2/
@@ -96,8 +96,8 @@ file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.o
 file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/crypto-3.0.1/lib/
 cupertino_icons
 2.12
-file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.3/
-file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.3/lib/
+file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4/
+file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4/lib/
 dart_style
 2.12
 file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/dart_style-2.2.0/
@@ -204,8 +204,8 @@ file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.o
 file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-2.0.6/lib/
 path_provider_linux
 2.12
-file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.1.0/
-file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.1.0/lib/
+file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.1.1/
+file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.1.1/lib/
 path_provider_macos
 2.12
 file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-2.0.2/
@@ -216,8 +216,8 @@ file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.o
 file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_platform_interface-2.0.1/lib/
 path_provider_windows
 2.12
-file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.3/
-file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.3/lib/
+file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.4/
+file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.4/lib/
 platform
 2.12
 file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/platform-3.0.2/
@@ -323,9 +323,9 @@ web_socket_channel
 file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/web_socket_channel-2.1.0/
 file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/web_socket_channel-2.1.0/lib/
 win32
-2.13
-file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/win32-2.2.10/
-file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/win32-2.2.10/lib/
+2.14
+file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/win32-2.3.0/
+file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/win32-2.3.0/lib/
 xdg_directories
 2.12
 file:///C:/Users/david/OneDrive/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/xdg_directories-0.2.0/

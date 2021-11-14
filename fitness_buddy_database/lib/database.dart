@@ -319,6 +319,10 @@ class DBProvider {
     return null;
   }
 
+  // Have a function to select by just muscle group
+
+  // And another function that selects the difficulty from that muscle group.
+
   // for now only selects by muscle group. I will need help with this.
   Future<List<Exercise>?> selectByMuscleGroupAndDifficulty(
       String muscleGroup, int difficulty) async {
@@ -339,7 +343,9 @@ class DBProvider {
 
     if (results.isNotEmpty) {
       for (int i = 0; i < results.length; i++) {
-        exerciseList[i] = Exercise.fromJson(results[i]);
+        if (Exercise.fromJson(results[i]).difficulty == difficulty) {
+          exerciseList.add(Exercise.fromJson(results[i]));
+        }
       }
 
       return exerciseList;

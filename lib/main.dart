@@ -5,10 +5,10 @@ import 'package:fitness_buddy_bloc/fitness_buddy_bloc.dart';
 import 'package:fitness_buddy_repository/fitness_buddy_repository.dart';
 import 'package:fitness_buddy_database/fitness_buddy_database.dart';
 
-final DBProvider database = DBProvider.db;
-final ExerciseRepository exerciseRepository =
-    ExerciseRepository(database: database);
-void main() {
+void main() async {
+  final DBProvider database = await DBProvider.db;
+  final ExerciseRepository exerciseRepository =
+      ExerciseRepository(database: database);
   runApp(FitnessBuddyApp(
       exerciseRepository: exerciseRepository, database: database));
 }
@@ -21,7 +21,6 @@ class FitnessBuddyApp extends StatelessWidget {
   final ExerciseRepository exerciseRepository;
   final DBProvider database;
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return RepositoryProvider.value(

@@ -11,11 +11,24 @@ class ExerciseRepository {
     List<Exercise>? dbExercises = await database
         .selectByMuscleGroupAndDifficulty(muscleGroup, difficulty);
     print("Returned from the db select function");
-    List<RepoExercise>? repoExercises = [];
 
-    if (dbExercises != null) {
+    // fill the list with empty exercises. Avoids index range errors
+    List<RepoExercise>? repoExercises = List<RepoExercise>.filled(
+        dbExercises!.length,
+        RepoExercise(
+            difficulty: -1,
+            equipment: "",
+            exerciseId: -1,
+            exerciseName: "",
+            muscleGroup: "",
+            secondaryMuscleGroup: ""));
+
+    if (dbExercises.isNotEmpty) {
       for (int i = 0; i < dbExercises.length; i++) {
-        repoExercises[i].convertDbExerciseToRepoExercise(dbExercises[i]);
+        print(dbExercises[i].toJson());
+        repoExercises[i] =
+            repoExercises[i].convertDbExerciseToRepoExercise(dbExercises[i]);
+        print(repoExercises[i]);
       }
     }
 

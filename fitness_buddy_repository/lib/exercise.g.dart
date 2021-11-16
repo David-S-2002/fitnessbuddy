@@ -8,11 +8,11 @@ part of 'exercise.dart';
 
 RepoExercise _$RepoExerciseFromJson(Map<String, dynamic> json) => RepoExercise(
       exerciseName: json['exerciseName'] as String,
-      exerciseId: json['exerciseId'] as int,
+      exerciseId: json['exerciseId'] as int?,
       muscleGroup: json['muscleGroup'] as String,
       secondaryMuscleGroup: json['secondaryMuscleGroup'] as String?,
       equipment: json['equipment'] as String,
-      difficulty: json['difficulty'] as int,
+      difficulty: json['difficulty'] as int?,
     );
 
 Map<String, dynamic> _$RepoExerciseToJson(RepoExercise instance) =>

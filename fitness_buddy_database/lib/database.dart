@@ -322,23 +322,33 @@ class DBProvider {
         where: 'muscleGroup = ?',
         whereArgs: [muscleGroup]);
 
-    print(results);
+    // add the exercises that have muscleGroup as their secondary
+    // muscle group too:
+    results.addAll(await db.query("Exercise",
+        columns: [
+          "exerciseID",
+          "exerciseName",
+          "muscleGroup",
+          "secondaryMuscleGroup",
+          "equipment",
+          "difficulty"
+        ],
+        where: 'secondaryMuscleGroup = ?',
+        whereArgs: [muscleGroup]));
 
     if (results.isNotEmpty) {
       for (int i = 0; i < results.length; i++) {
-        print("In loop");
-        print("The values of results[i] are" + results[i].values.toString());
-        //print(Exercise.fromJson(results[i]));
-        //print(Exercise.fromJson(results[i]).toString());
-
         currentExercise = Exercise.fromJson(results[i]);
 
         if (currentExercise.difficulty == difficulty) {
           exerciseList.add(currentExercise);
         }
       }
+      print("Exercises selected from DB: " + results.toString());
+
       return exerciseList;
     }
+
     return null;
   }
 

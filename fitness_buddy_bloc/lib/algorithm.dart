@@ -2,10 +2,6 @@ import 'dart:math';
 
 import 'barrel.dart';
 
-// Fill the time intervals we have determined with the exercises, randomly chosen
-
-// Once an exercise has been chosen, remove it from the list of possible exercises
-
 Future<List<Circuit>> algorithm(int workoutTime, String muscleGroup,
     int difficulty, ExerciseRepository repository) async {
   List<Circuit> circuits = [];
@@ -20,7 +16,27 @@ Future<List<Circuit>> algorithm(int workoutTime, String muscleGroup,
   Random random = Random();
   int randNum;
 
-  // Initialize these to different values depending on the difficulty:
+  // get all the possible exercises from the repository:
+  repoExercises = await repository.selectByMuscleGroupAndDifficulty(
+      muscleGroup, difficulty);
+
+  print("Repo exercises: " + repoExercises.toString());
+
+  blocExercises = List<BLOCExercise>.filled(
+      repoExercises.length,
+      BLOCExercise(
+          exerciseName: "",
+          exerciseTime: -1,
+          equipment: "",
+          primaryMuscleGroup: "",
+          secondaryMuscleGroup: "",
+          difficulty: -1));
+
+  // exercise time is now -1 for all exercises
+
+  print("BlocExercises.length = " + blocExercises.length.toString());
+
+  // Set the fields of the circuit depending on difficulty:
   if (difficulty == 3) {
     timePerExercise = (1 / 3); // 20 sec
     restInCircuit = (1 / 6); // 10 seconds
@@ -38,31 +54,42 @@ Future<List<Circuit>> algorithm(int workoutTime, String muscleGroup,
     throw Exception("Invalid difficulty passed into algorithm");
   }
 
+  // convert these to BLOCExercises
+  for (int i = 0; i < repoExercises.length; i++) {
+    blocExercises[i] = repoExercises[i].convertRepoExerciseToBlocExercise();
+    blocExercises[i].exerciseTime = timePerExercise;
+  }
+
   // Populate the list with numCircuits circuits
   for (int i = 0; i <= (workoutTime / 5); i++) {
     circuits.add(Circuit(
         numExercises: numExercisesInCircuit,
         restTimeInCircuit: restInCircuit,
-        exercises: [],
+
+        // set the length of the exercises list
+        exercises: List.filled(
+            numExercisesInCircuit,
+            BLOCExercise(
+                exerciseName: "",
+                exerciseTime: -1,
+                equipment: "",
+                primaryMuscleGroup: "",
+                secondaryMuscleGroup: "",
+                difficulty: -1)),
         timesRepeated: timesRepeated,
         restTimeAfterCircuit: restTimeBetweenCircuits));
   }
 
-  // get all the possible exercises from the repository:
-  repoExercises = await repository.selectByMuscleGroupAndDifficulty(
-      muscleGroup, difficulty);
-
-  // convert these to BLOCExercises
-  for (int i = 0; i < repoExercises.length; i++) {
-    blocExercises[i] = repoExercises[i].convertRepoExerciseToBlocExercise();
-  }
-
+  // blocExercises.length - 1 seems to be 0
   for (int i = 0; i < circuits.length; i++) {
     for (int j = 0; j < circuits[i].exercises.length; j++) {
       // choose a random exercise from the list of exercises
-      randNum = random.nextInt((blocExercises.length - 1));
+      randNum = random.nextInt((blocExercises.length));
+      print("Rand num is " + randNum.toString());
 
       circuits[i].exercises[j] = blocExercises[randNum];
+
+      print("The exercise is " + circuits[i].exercises[j].toString());
     }
   }
 

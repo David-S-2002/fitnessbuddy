@@ -4,7 +4,7 @@ class BLOCExercise {
   String equipment;
   String primaryMuscleGroup;
   String? secondaryMuscleGroup;
-  int difficulty;
+  int? difficulty;
 
   BLOCExercise(
       {required this.exerciseName,

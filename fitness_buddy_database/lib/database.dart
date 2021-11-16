@@ -63,8 +63,8 @@ class DBProvider {
           [
             2,
             "Prone (Lying) Hamstrings Curl",
-            "Legs",
-            "Thighs",
+            "Legs - Thighs",
+            "none",
             "Resistance Bands",
             1
           ]);
@@ -73,7 +73,14 @@ class DBProvider {
           "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
           "'secondaryMuscleGroup', 'equipment', 'difficulty')"
           "values (?, ?, ?, ?, ?, ?)",
-          [3, "Seated Butterfly Stretch", "Legs", "Thighs", "No Eqipment", 1]);
+          [
+            3,
+            "Seated Butterfly Stretch",
+            "Legs - Thighs",
+            "None",
+            "No Eqipment",
+            1
+          ]);
 
       await db.execute(
           "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
@@ -83,7 +90,7 @@ class DBProvider {
             4,
             "Push Press",
             "Back",
-            "Full/Body/Integrated",
+            "Full Body/Integrated",
             "Resistance Bands",
             3
           ]);
@@ -92,28 +99,13 @@ class DBProvider {
           "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
           "'secondaryMuscleGroup', 'equipment', 'difficulty')"
           "values (?, ?, ?, ?, ?, ?)",
-          [
-            5,
-            "Seated High Back Row",
-            "Back",
-            "Arms",
-            "Shoulders",
-            "Resistance Bands",
-            1
-          ]);
+          [5, "Seated Row", "Back", "Arms", "Resistance Bands", 1]);
 
       await db.execute(
           "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
           "'secondaryMuscleGroup', 'equipment', 'difficulty')"
           "values (?, ?, ?, ?, ?, ?)",
-          [
-            6,
-            "Medicine Ball Push-ups",
-            "Abs",
-            "Medicine Ball",
-            "Resistance Bands",
-            3
-          ]);
+          [6, "Medicine Ball Push-ups", "Abs", "none", "Resistance Bands", 3]);
 
       await db.execute(
           "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
@@ -125,26 +117,19 @@ class DBProvider {
           "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
           "'secondaryMuscleGroup', 'equipment', 'difficulty')"
           "values (?, ?, ?, ?, ?, ?)",
-          [8, "Bent-over Row", "Biceps", "Back/Shoulders", "Barbell", 3]);
+          [8, "Bent-over Row", "Arms", "Back", "Barbell", 3]);
 
       await db.execute(
           "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
           "'secondaryMuscleGroup', 'equipment', 'difficulty')"
           "values (?, ?, ?, ?, ?, ?)",
-          [9, "Chin-ups", "Biceps", "Arms/Back", "Pull-up Bar", 2]);
+          [9, "Chin-ups", "Arms", "Back", "Pull-up Bar", 2]);
 
       await db.execute(
           "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
           "'secondaryMuscleGroup', 'equipment', 'difficulty')"
           "values (?, ?, ?, ?, ?, ?)",
-          [
-            10,
-            "Rotational Uppercut",
-            "Biceps",
-            "Arms/Full Body",
-            "Dumbbells",
-            2
-          ]);
+          [10, "Rotational Uppercut", "Arms", "Full Body", "Dumbbells", 2]);
 
       await db.execute(
           "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
@@ -180,7 +165,7 @@ class DBProvider {
             13,
             "Bottom-up Press",
             "Chest",
-            "Full Body/Integrated, Shoulders",
+            "Full Body/Integrated",
             "Kettlebells",
             3
           ]);
@@ -223,8 +208,8 @@ class DBProvider {
           [
             18,
             "Walking Lunges with Twists",
-            "Abs, Butt/Hips",
-            "Legs-Thighs",
+            "Abs",
+            "Butt/Hips",
             "Medicine Ball",
             2
           ]);
@@ -236,9 +221,9 @@ class DBProvider {
           [
             19,
             "Calf Raise",
-            "Legs",
-            "Calves and Shins",
-            "Weighted Machines/Selectorized",
+            "Legs - Calves and Shins",
+            "None",
+            "Weight Machines/Selectorized",
             1
           ]);
 
@@ -265,7 +250,6 @@ class DBProvider {
     });
   }
 
-  // Exercise is the data model in exercise.dart
   // Insert a new exercise using the insert method
   // Followed the format of:
   // https://pub.dev/packages/sqflite
@@ -319,15 +303,12 @@ class DBProvider {
     return null;
   }
 
-  // Have a function to select by just muscle group
-
-  // And another function that selects the difficulty from that muscle group.
-
-  // for now only selects by muscle group. I will need help with this.
+  // Have to select by secondary muscle group as well.
   Future<List<Exercise>?> selectByMuscleGroupAndDifficulty(
       String muscleGroup, int difficulty) async {
     final Database db = await database;
     List<Exercise> exerciseList = [];
+    Exercise currentExercise;
 
     List<Map<String, Object?>> results = await db.query("Exercise",
         columns: [
@@ -341,13 +322,21 @@ class DBProvider {
         where: 'muscleGroup = ?',
         whereArgs: [muscleGroup]);
 
+    print(results);
+
     if (results.isNotEmpty) {
       for (int i = 0; i < results.length; i++) {
-        if (Exercise.fromJson(results[i]).difficulty == difficulty) {
-          exerciseList.add(Exercise.fromJson(results[i]));
+        print("In loop");
+        print("The values of results[i] are" + results[i].values.toString());
+        //print(Exercise.fromJson(results[i]));
+        //print(Exercise.fromJson(results[i]).toString());
+
+        currentExercise = Exercise.fromJson(results[i]);
+
+        if (currentExercise.difficulty == difficulty) {
+          exerciseList.add(currentExercise);
         }
       }
-
       return exerciseList;
     }
     return null;

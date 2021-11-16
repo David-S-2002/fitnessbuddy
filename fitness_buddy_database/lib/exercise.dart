@@ -8,18 +8,19 @@
 import 'package:json_annotation/json_annotation.dart';
 part 'exercise.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: true)
 class Exercise {
-  String exerciseName;
   int exerciseId;
+
+  String exerciseName;
   String muscleGroup;
   String? secondaryMuscleGroup;
   String equipment;
   int difficulty;
 
   Exercise(
-      {required this.exerciseName,
-      required this.exerciseId,
+      {required this.exerciseId,
+      required this.exerciseName,
       required this.muscleGroup,
       required this.secondaryMuscleGroup,
       required this.equipment,

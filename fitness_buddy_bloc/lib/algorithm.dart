@@ -11,7 +11,6 @@ Future<List<Circuit>> algorithm(int workoutTime, String muscleGroup,
   List<Circuit> circuits = [];
   List<RepoExercise> repoExercises = [];
   List<BLOCExercise> blocExercises = [];
-  double circuitTimePlusRest = 5;
   double restTimeBetweenCircuits = 0.5;
 
   int timesRepeated = 3; // how many times one circuit is repeated
@@ -40,7 +39,7 @@ Future<List<Circuit>> algorithm(int workoutTime, String muscleGroup,
   }
 
   // Populate the list with numCircuits circuits
-  for (int i = 0; i <= (workoutTime / 5 as int); i++) {
+  for (int i = 0; i <= (workoutTime / 5); i++) {
     circuits.add(Circuit(
         numExercises: numExercisesInCircuit,
         restTimeInCircuit: restInCircuit,

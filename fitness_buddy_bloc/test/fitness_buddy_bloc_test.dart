@@ -1,7 +1,3 @@
-import 'package:flutter_test/flutter_test.dart';
-
-import 'package:fitness_buddy_bloc/fitness_buddy_bloc.dart';
-
 void main() {
   print("In main");
   // test('adds one to input values', () {

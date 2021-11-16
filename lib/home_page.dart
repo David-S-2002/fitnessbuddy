@@ -69,8 +69,8 @@ class _MainPageState extends State<MainPage> {
                           BlocProvider.of<FitnessBuddyBloc>(context).add(
                               const GenerateWorkout(
                                   workoutTime: 20,
-                                  muscleGroup: "Abs",
-                                  difficulty: 1));
+                                  muscleGroup: "Full Body/Integrated",
+                                  difficulty: 2));
                         },
                         child: const Text("Generate Workout"))
                   ] //DropdownButtonHideUnderline

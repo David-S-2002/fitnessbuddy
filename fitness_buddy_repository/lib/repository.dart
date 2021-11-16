@@ -5,12 +5,12 @@ class ExerciseRepository {
 
   ExerciseRepository({required this.database});
 
-  // only selects by muscle group for now
-  // will need help with selecting by difficulty
   Future<List<RepoExercise>> selectByMuscleGroupAndDifficulty(
       String muscleGroup, int difficulty) async {
+    print("In repo select funtion");
     List<Exercise>? dbExercises = await database
         .selectByMuscleGroupAndDifficulty(muscleGroup, difficulty);
+    print("Returned from the db select function");
     List<RepoExercise>? repoExercises = [];
 
     if (dbExercises != null) {
@@ -20,55 +20,6 @@ class ExerciseRepository {
     }
 
     return repoExercises;
-  }
-
-  Future<List<RepoExercise>> selectByMuscleGroupAndDifficultyHardcoded(
-      String muscleGroup, int difficulty) async {
-    return [
-      RepoExercise(
-          difficulty: 3,
-          muscleGroup: "Full Body/Integrated",
-          secondaryMuscleGroup: null,
-          equipment: "barbell",
-          exerciseId: 15,
-          exerciseName: "Deadlift"),
-      RepoExercise(
-          difficulty: 2,
-          muscleGroup: "Back",
-          secondaryMuscleGroup: "Butt/Hips",
-          equipment: "Dumbbells",
-          exerciseId: 16,
-          exerciseName: "Front Squat"),
-      RepoExercise(
-        exerciseId: 17,
-        exerciseName: "Push-up with Single-leg Raise",
-        difficulty: 3,
-        muscleGroup: "Arms",
-        secondaryMuscleGroup: "Butt/Hips",
-        equipment: "None",
-      ),
-      RepoExercise(
-          difficulty: 3,
-          muscleGroup: "Full Body/Integrated",
-          secondaryMuscleGroup: null,
-          equipment: "barbell",
-          exerciseId: 18,
-          exerciseName: "Push Press"),
-      RepoExercise(
-          difficulty: 3,
-          muscleGroup: "Full Body/Integrated",
-          secondaryMuscleGroup: null,
-          equipment: "barbell",
-          exerciseId: 19,
-          exerciseName: "Power Clean"),
-      RepoExercise(
-          difficulty: 3,
-          muscleGroup: "Abs",
-          secondaryMuscleGroup: "Butt/Hips",
-          equipment: "None",
-          exerciseId: 20,
-          exerciseName: "Lunge with Elbow Instep"),
-    ];
   }
 
   Future<List<RepoExercise>> getAllRepoExercises() async {

@@ -3,21 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1f3342d1-4073-4dc7-9a89-b015fe9a9ab6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/fitnessbuddy_android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/fitnessbuddy_android.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitness_buddy_bloc/lib/algorithm.dart" beforeDir="false" afterPath="$PROJECT_DIR$/fitness_buddy_bloc/lib/algorithm.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitness_buddy_bloc/lib/barrel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/fitness_buddy_bloc/lib/barrel.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitness_buddy_bloc/lib/fitness_buddy_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/fitness_buddy_bloc/lib/fitness_buddy_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitness_buddy_bloc/test/fitness_buddy_bloc_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/fitness_buddy_bloc/test/fitness_buddy_bloc_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitness_buddy_database/test/fitness_buddy_database_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/fitness_buddy_database/test/fitness_buddy_database_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitness_buddy_repository/lib/exercise.dart" beforeDir="false" afterPath="$PROJECT_DIR$/fitness_buddy_repository/lib/exercise.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitness_buddy_repository/lib/fitness_buddy_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/fitness_buddy_repository/lib/fitness_buddy_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitness_buddy_repository/test/fitness_buddy_repository_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/fitness_buddy_repository/test/fitness_buddy_repository_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitnessbuddy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/fitnessbuddy.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/widget_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/test/widget_test.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

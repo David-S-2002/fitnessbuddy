@@ -10,6 +10,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fitness_buddy_bloc/fitness_buddy_bloc.dart';
 
+//
+Map<String, int> difficultyMap = {"Easy": 1, "Intermediate": 2, "Advanced": 3};
+
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
@@ -19,6 +22,42 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   String? value;
+
+  List<DropdownMenu> dropdownMenus = [
+    DropdownMenu(
+      items: [
+        // the strings in the difficulty map
+        for (int i = 0; i < difficultyMap.length; i++)
+          difficultyMap.keys.elementAt(i)
+      ],
+      itemChosen: null,
+    ),
+    DropdownMenu(
+      items: const [
+        "Abs",
+        "Arms",
+        "Back",
+        "Butt/Hips",
+        "Chest",
+        "Full Body/Integrated",
+        "Legs - Calves and Shins",
+        "Shoulders",
+        "Legs - Thighs",
+      ],
+      itemChosen: null,
+    ),
+    DropdownMenu(
+      items: [
+        5.toString(),
+        10.toString(),
+        15.toString(),
+        20.toString(),
+        25.toString(),
+        30.toString()
+      ],
+      itemChosen: null,
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -33,44 +72,45 @@ class _MainPageState extends State<MainPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text("Difficulty Level"),
-                    const DropdownMenu(items: ["Easy", "Medium", "Hard"]),
+                    dropdownMenus[0],
                     const Text("Muscle Group"),
-                    const DropdownMenu(items: [
-                      "Abs",
-                      "Arms",
-                      "Back",
-                      "Butt/Hips",
-                      "Chest",
-                      "Full Body/Integrated",
-                      "Legs - Calves and Shins",
-                      "Shoulders",
-                      "Legs - Thighs"
-                    ]),
+                    dropdownMenus[1],
                     const Text("Time Duration"),
-                    const DropdownMenu(items: [
-                      "5 minutes",
-                      "10 minutes",
-                      "15 minutes",
-                      "20 minutes",
-                      "25 minutes",
-                      "30 minutes"
-                    ]),
-                    ElevatedButton(
+                    dropdownMenus[2],
+                    TextButton(
                         // when pressed, send an event to the bloc
                         // use Navigator to route to the other page
                         // This is just a test workout. You would use the difficulty, time
                         //, etc. selected from the dropdown menus
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const WorkoutPage()));
+                          // We want to disable the button if any of the values
+                          // in the dropdown menus are null.
 
-                          BlocProvider.of<FitnessBuddyBloc>(context).add(
-                              const GenerateWorkout(
-                                  workoutTime: 10,
-                                  muscleGroup: "Full Body/Integrated",
-                                  difficulty: 2));
+                          bool hasNullValues = false;
+                          for (int i = 0; i < dropdownMenus.length; i++) {
+                            if (dropdownMenus[i].itemChosen == null) {
+                              hasNullValues = true;
+                            }
+                          }
+
+                          // if none of the dropdown values are null, send
+                          // an event to the BLOC and navigate to the workout page
+                          if (!hasNullValues) {
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (BuildContext context) =>
+                            //             const WorkoutPage()));
+
+                            BlocProvider.of<FitnessBuddyBloc>(context).add(
+                                GenerateWorkout(
+                                    workoutTime:
+                                        int.parse(dropdownMenus[2].itemChosen!),
+                                    muscleGroup: dropdownMenus[1].itemChosen!,
+                                    difficulty: difficultyMap[
+                                        dropdownMenus[0].itemChosen]!));
+                          }
+                          return;
                         },
                         child: const Text("Generate Workout"))
                   ] //DropdownButtonHideUnderline

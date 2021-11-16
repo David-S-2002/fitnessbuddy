@@ -20,6 +20,8 @@ Future<List<Circuit>> algorithm(int workoutTime, String muscleGroup,
   repoExercises = await repository.selectByMuscleGroupAndDifficulty(
       muscleGroup, difficulty);
 
+  // throws an error if repoExercises is empty. Need to handle this.
+
   print("Repo exercises: " + repoExercises.toString());
 
   blocExercises = List<BLOCExercise>.filled(

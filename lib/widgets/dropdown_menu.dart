@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 
 class DropdownMenu extends StatefulWidget {
-  const DropdownMenu({Key? key, required this.items}) : super(key: key);
+  DropdownMenu({Key? key, required this.items, required this.itemChosen})
+      : super(key: key);
 
   final List<String> items;
+  String? itemChosen;
 
   @override
   _DropdownMenuState createState() => _DropdownMenuState();
 }
 
 class _DropdownMenuState extends State<DropdownMenu> {
-  //final items = ['Time Duration', 'Muscle Groups', 'Difficulty Level'];
   String? value;
+  String? itemChosen;
 
   @override
   Widget build(BuildContext context) {
@@ -25,13 +27,18 @@ class _DropdownMenuState extends State<DropdownMenu> {
       ), //BoxDecoration
       child: DropdownButtonHideUnderline(
         child: DropdownButton<String>(
-          value: value,
-          iconSize: 36,
-          icon: const Icon(Icons.arrow_drop_down, color: Colors.black),
-          isExpanded: true,
-          items: widget.items.map(buildMenuItem).toList(),
-          onChanged: (value) => setState(() => this.value = value),
-        ), //Drop down button
+            value: value,
+            iconSize: 36,
+            icon: const Icon(Icons.arrow_drop_down, color: Colors.black),
+            isExpanded: true,
+            items: widget.items.map(buildMenuItem).toList(),
+            onChanged: (value) {
+              setState(() {
+                this.value = value;
+                widget.itemChosen = value;
+                print(widget.itemChosen);
+              });
+            }), //Drop down button
       ),
     ));
   }

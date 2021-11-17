@@ -431,6 +431,101 @@ class DBProvider {
           "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup',"
           "'secondaryMuscleGroup', 'equipment', 'difficulty')"
           "values (?, ?, ?, ?, ?, ?)",
+          [
+            41,
+            "Stability Ball Push-Up",
+            "Chest",
+            "Shoulders",
+            "Stability Ball",
+            2
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup',"
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            42,
+            "Stability Ball Prone Walkout",
+            "Abs",
+            "Back",
+            "Stability Ball",
+            2
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup',"
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [43, "Supine Suitcase Pass", "Abs", "None", "Stability Ball", 3]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup',"
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            44,
+            "Prone Runner",
+            "Full Body/Integrated",
+            "None",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup',"
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [45, "90 Lat Stretch", "Back", "None", "No Equipment", 1]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup',"
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [46, "Cat-Cow", "Back", "Chest", "No Equipment", 1]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup',"
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [47, "Cobra Exercise", "Abs", "Back", "No Equipment", 1]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup',"
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            48,
+            "Contralateral Limb Raises",
+            "Back",
+            "Butt/Hips",
+            "No Equipment",
+            1
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup',"
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [49, "Jump and Reach", "Butt/Hips", "Legs", "No Equipment", 2]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup',"
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            50,
+            "Lateral Crawls",
+            "Full Body/Integrated",
+            "None",
+            "No Equipment",
+            2
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup',"
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
           [71, "Side Plank", "Abs", "Legs/Butt/Hips", "No Equipment", 1]);
 
       await db.execute(

@@ -20,7 +20,7 @@ Future<List<Circuit>> algorithm(int workoutTime, String muscleGroup,
   repoExercises = await repository.selectByMuscleGroupAndDifficulty(
       muscleGroup, difficulty);
 
-  // throws an error if repoExercises is empty. Need to handle this.
+  // Return/throw an exception/print
 
   print("Repo exercises: " + repoExercises.toString());
 
@@ -33,8 +33,6 @@ Future<List<Circuit>> algorithm(int workoutTime, String muscleGroup,
           primaryMuscleGroup: "",
           secondaryMuscleGroup: "",
           difficulty: -1));
-
-  // exercise time is now -1 for all exercises
 
   print("BlocExercises.length = " + blocExercises.length.toString());
 
@@ -82,19 +80,13 @@ Future<List<Circuit>> algorithm(int workoutTime, String muscleGroup,
         restTimeAfterCircuit: restTimeBetweenCircuits));
   }
 
-  // blocExercises.length - 1 seems to be 0
   for (int i = 0; i < circuits.length; i++) {
     for (int j = 0; j < circuits[i].exercises.length; j++) {
       // choose a random exercise from the list of exercises
       randNum = random.nextInt((blocExercises.length));
-      print("Rand num is " + randNum.toString());
-
       circuits[i].exercises[j] = blocExercises[randNum];
-
-      print("The exercise is " + circuits[i].exercises[j].toString());
     }
   }
 
-  print(circuits);
   return circuits;
 }

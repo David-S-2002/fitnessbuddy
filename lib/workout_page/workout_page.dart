@@ -1,3 +1,5 @@
+import 'package:fitnessbuddy/home_page.dart';
+import 'package:fitnessbuddy/workout_page/workout_views.dart';
 import 'package:flutter/material.dart';
 
 class WorkoutPage extends StatefulWidget {
@@ -11,7 +13,9 @@ class _WorkoutPageState extends State<WorkoutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text('Workout Page'), centerTitle: true),
-        body: const Center(child: Text("This is the workout page")));
+        // By the time we get here, workout title shouldn't be null,
+        // so we can use a null check.
+        appBar: AppBar(title: Text(getWorkoutTitle()!), centerTitle: true),
+        body: const WorkoutView());
   }
 }

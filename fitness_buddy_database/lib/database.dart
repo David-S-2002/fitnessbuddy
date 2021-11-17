@@ -50,7 +50,7 @@ class DBProvider {
           [
             1,
             "Ankle Flexion",
-            "Legs - Calves and Shins",
+            "Legs/Butt/Hips",
             "none",
             "Resistance Bands",
             1
@@ -63,7 +63,7 @@ class DBProvider {
           [
             2,
             "Prone (Lying) Hamstrings Curl",
-            "Legs - Thighs",
+            "Legs/Butt/Hips",
             "none",
             "Resistance Bands",
             1
@@ -76,9 +76,9 @@ class DBProvider {
           [
             3,
             "Seated Butterfly Stretch",
-            "Legs - Thighs",
+            "Legs/Butt/Hips",
             "None",
-            "No Eqipment",
+            "No Equipment",
             1
           ]);
 
@@ -129,7 +129,14 @@ class DBProvider {
           "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
           "'secondaryMuscleGroup', 'equipment', 'difficulty')"
           "values (?, ?, ?, ?, ?, ?)",
-          [10, "Rotational Uppercut", "Arms", "Full Body", "Dumbbells", 2]);
+          [
+            10,
+            "Rotational Uppercut",
+            "Arms",
+            "Full Body/Integrated",
+            "Dumbbells",
+            2
+          ]);
 
       await db.execute(
           "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
@@ -209,7 +216,7 @@ class DBProvider {
             18,
             "Walking Lunges with Twists",
             "Abs",
-            "Butt/Hips",
+            "Legs/Butt/Hips",
             "Medicine Ball",
             2
           ]);
@@ -221,7 +228,7 @@ class DBProvider {
           [
             19,
             "Calf Raise",
-            "Legs - Calves and Shins",
+            "Legs/Butt/Hips",
             "None",
             "Weight Machines/Selectorized",
             1
@@ -344,8 +351,6 @@ class DBProvider {
           exerciseList.add(currentExercise);
         }
       }
-      print("Exercises selected from DB: " + results.toString());
-
       return exerciseList;
     }
 

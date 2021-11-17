@@ -24,7 +24,7 @@ class FitnessBuddyBloc extends Bloc<FitnessBuddyEvent, FitnessBuddyState> {
           circuits: await algorithm(event.workoutTime, event.muscleGroup,
               event.difficulty, exerciseRepo),
           status: FitnessBuddyStatus.success));
-    } on Exception {
+    } catch (_) {
       // something went wrong; emit a failure state
       emit(state.copyWith(status: FitnessBuddyStatus.failure));
     }

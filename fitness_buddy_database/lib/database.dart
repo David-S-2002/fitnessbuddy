@@ -257,19 +257,19 @@ class DBProvider {
           "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
           "'secondaryMuscleGroup', 'equipment', 'difficulty')"
           "values (?, ?, ?, ?, ?, ?)",
-          [22, "Glute Activation Lunges", "Abs", "Butt/Hips", "None", 3]);
+          [22, "Glute Activation Lunges", "Abs", "Legs/Butt/Hips", "None", 3]);
 
       await db.execute(
           "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
           "'secondaryMuscleGroup', 'equipment', 'difficulty')"
           "values (?, ?, ?, ?, ?, ?)",
-          [23, "Inverted Flyers", "Abs", "Legs", "None", 3]);
+          [23, "Inverted Flyers", "Abs", "Legs/Butt/Hips", "None", 3]);
 
       await db.execute(
           "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
           "'secondaryMuscleGroup', 'equipment', 'difficulty')"
           "values (?, ?, ?, ?, ?, ?)",
-          [24, "Side Plank (modified)", "Abs", "Butt/Hips", "None", 3]);
+          [24, "Side Plank (modified)", "Abs", "Legs/Butt/Hips", "None", 3]);
 
       await db.execute(
           "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "

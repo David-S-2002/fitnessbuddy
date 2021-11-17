@@ -6,6 +6,17 @@ part of 'fitness_buddy_database.dart';
 // Lines 13-25 are copied
 
 // Create a provate constructor
+
+const List<String> MUSCLE_GROUPS = [
+  "Abs",
+  "Arms",
+  "Back",
+  "Chest",
+  "Full Body/Integrated",
+  "Shoulders",
+  "Legs/Butt/Hips"
+];
+
 class DBProvider {
   DBProvider._();
   static final DBProvider db = DBProvider._();

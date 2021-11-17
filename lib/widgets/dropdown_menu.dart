@@ -36,7 +36,6 @@ class _DropdownMenuState extends State<DropdownMenu> {
               setState(() {
                 this.value = value;
                 widget.itemChosen = value;
-                print(widget.itemChosen);
               });
             }), //Drop down button
       ),

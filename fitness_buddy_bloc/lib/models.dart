@@ -14,6 +14,14 @@ class BLOCExercise {
       required this.secondaryMuscleGroup,
       required this.difficulty});
 
+  static BLOCExercise emptyExercise = BLOCExercise(
+      exerciseName: "",
+      exerciseTime: -1,
+      equipment: "",
+      primaryMuscleGroup: "",
+      secondaryMuscleGroup: "",
+      difficulty: -1);
+
   @override
   String toString() =>
       "Exercise: Name: " +
@@ -63,3 +71,18 @@ class Circuit {
       ". Times repeated: " +
       timesRepeated.toString();
 }
+
+BLOCExercise emptyExercise = BLOCExercise(
+    exerciseName: "",
+    exerciseTime: 0,
+    equipment: "",
+    primaryMuscleGroup: "",
+    secondaryMuscleGroup: "",
+    difficulty: -1);
+
+Circuit emptyCircuit = Circuit(
+    exercises: [],
+    numExercises: 0,
+    restTimeInCircuit: 0,
+    timesRepeated: 0,
+    restTimeAfterCircuit: 0);

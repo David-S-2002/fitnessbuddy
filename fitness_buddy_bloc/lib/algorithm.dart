@@ -1,13 +1,14 @@
 import 'dart:math';
-
 import 'barrel.dart';
+
+const int SECONDS_PER_MINUTE = 60;
 
 Future<List<Circuit>> algorithm(int workoutTime, String muscleGroup,
     int difficulty, ExerciseRepository repository) async {
   List<Circuit> circuits = [];
   List<RepoExercise> repoExercises = [];
   List<BLOCExercise> blocExercises = [];
-  double restTimeBetweenCircuits = 0.5;
+  double restTimeBetweenCircuits = 30;
 
   int timesRepeated = 3; // how many times one circuit is repeated
   double timePerExercise; // duration of one exercise
@@ -20,37 +21,27 @@ Future<List<Circuit>> algorithm(int workoutTime, String muscleGroup,
   repoExercises = await repository.selectByMuscleGroupAndDifficulty(
       muscleGroup, difficulty);
 
-  // Return/throw an exception/print
+  // Return/throw an exception/print if empty
 
-  print("Repo exercises: " + repoExercises.toString());
-
-  blocExercises = List<BLOCExercise>.filled(
-      repoExercises.length,
-      BLOCExercise(
-          exerciseName: "",
-          exerciseTime: -1,
-          equipment: "",
-          primaryMuscleGroup: "",
-          secondaryMuscleGroup: "",
-          difficulty: -1));
+  blocExercises =
+      List<BLOCExercise>.filled(repoExercises.length, emptyExercise);
 
   print("BlocExercises.length = " + blocExercises.length.toString());
 
   // Set the fields of the circuit depending on difficulty:
   if (difficulty == 3) {
-    timePerExercise = (1 / 3); // 20 sec
-    restInCircuit = (1 / 6); // 10 seconds
+    timePerExercise = 20;
+    restInCircuit = 10;
     numExercisesInCircuit = 4;
   } else if (difficulty == 2) {
-    timePerExercise = (1 / 3); // 20 sec
-    restInCircuit = 0.5; // 30 sec
+    timePerExercise = 20;
+    restInCircuit = 30;
     numExercisesInCircuit = 3;
   } else if (difficulty == 1) {
-    timePerExercise = 0.5;
-    restInCircuit = 0.5;
+    timePerExercise = 30;
+    restInCircuit = 30;
     numExercisesInCircuit = 2;
   } else {
-    print("Invalid difficulty");
     throw Exception("Invalid difficulty passed into algorithm");
   }
 
@@ -61,32 +52,26 @@ Future<List<Circuit>> algorithm(int workoutTime, String muscleGroup,
   }
 
   // Populate the list with numCircuits circuits
-  for (int i = 0; i <= (workoutTime / 5); i++) {
+  for (int i = 0; i < (workoutTime / (5 * SECONDS_PER_MINUTE)); i++) {
     circuits.add(Circuit(
         numExercises: numExercisesInCircuit,
         restTimeInCircuit: restInCircuit,
 
         // set the length of the exercises list
-        exercises: List.filled(
-            numExercisesInCircuit,
-            BLOCExercise(
-                exerciseName: "",
-                exerciseTime: -1,
-                equipment: "",
-                primaryMuscleGroup: "",
-                secondaryMuscleGroup: "",
-                difficulty: -1)),
+        exercises: List.filled(numExercisesInCircuit, emptyExercise),
         timesRepeated: timesRepeated,
         restTimeAfterCircuit: restTimeBetweenCircuits));
   }
 
   for (int i = 0; i < circuits.length; i++) {
-    for (int j = 0; j < circuits[i].exercises.length; j++) {
+    for (int j = 0; j < circuits[i].numExercises; j++) {
       // choose a random exercise from the list of exercises
-      randNum = random.nextInt((blocExercises.length));
+      randNum = random.nextInt(blocExercises.length);
       circuits[i].exercises[j] = blocExercises[randNum];
     }
   }
+
+  print("The circuits are: " + circuits.toString());
 
   return circuits;
 }

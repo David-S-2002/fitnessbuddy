@@ -1,4 +1,5 @@
 import 'package:fitness_buddy_bloc/barrel.dart';
+import 'package:fitnessbuddy/widgets/circuit_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,7 +17,10 @@ class _WorkoutViewState extends State<WorkoutView> {
     return BlocBuilder<FitnessBuddyBloc, FitnessBuddyState>(
         builder: (BuildContext context, FitnessBuddyState state) {
       if (state.status == FitnessBuddyStatus.success) {
-        return const Text("This is the success view");
+        return ListView(children: [
+          for (int i = 0; i < state.circuits.length; i++)
+            CircuitWidget(circuit: state.circuits[i], circuitNumber: i + 1)
+        ]);
       } else if (state.status == FitnessBuddyStatus.loading) {
         return Center(
             child: Column(

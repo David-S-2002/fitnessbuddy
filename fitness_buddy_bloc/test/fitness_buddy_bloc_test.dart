@@ -1,5 +1,4 @@
 void main() {
-  print("In main");
   // test('adds one to input values', () {
   //   final calculator = Calculator();
   //   expect(calculator.addOne(2), 3);

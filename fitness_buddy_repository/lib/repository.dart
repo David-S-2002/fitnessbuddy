@@ -7,10 +7,8 @@ class ExerciseRepository {
 
   Future<List<RepoExercise>> selectByMuscleGroupAndDifficulty(
       String muscleGroup, int difficulty) async {
-    print("In repo select funtion");
     List<Exercise>? dbExercises = await database
         .selectByMuscleGroupAndDifficulty(muscleGroup, difficulty);
-    print("Returned from the db select function");
 
     // fill the list with empty exercises. Avoids index range errors
     List<RepoExercise>? repoExercises = List<RepoExercise>.filled(

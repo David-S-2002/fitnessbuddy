@@ -1,8 +1,4 @@
-// AppBar
-// Dropdown menus for time, muscle group, and difficulty level
-// "Generate workout" button at the bottom of the page. Pressing this button
-// routes to workout_page.dart
-
+import 'package:fitness_buddy_bloc/algorithm.dart';
 import 'package:fitness_buddy_bloc/barrel.dart';
 import 'package:fitnessbuddy/widgets/dropdown_menu.dart';
 import 'package:fitnessbuddy/workout_page/workout_page.dart';
@@ -13,6 +9,15 @@ import 'package:fitness_buddy_bloc/fitness_buddy_bloc.dart';
 // maps the difficulty integer values to the strings that will be used
 // in the difficulty dropdown menu
 Map<String, int> difficultyMap = {"Easy": 1, "Intermediate": 2, "Advanced": 3};
+
+Map<String, int> timeMap = {
+  "5 Minutes": 5 * SECONDS_PER_MINUTE,
+  "10 Minutes": 10 * SECONDS_PER_MINUTE,
+  "15 Minutes": 15 * SECONDS_PER_MINUTE,
+  "20 Minutes": 20 * SECONDS_PER_MINUTE,
+  "25 Minutes": 25 * SECONDS_PER_MINUTE,
+  "30 Minutes": 30 * SECONDS_PER_MINUTE,
+};
 
 // list of dropdown menus that go in the home page
 List<DropdownMenu> dropdownMenus = [
@@ -38,12 +43,8 @@ List<DropdownMenu> dropdownMenus = [
   ),
   DropdownMenu(
     items: [
-      5.toString(),
-      10.toString(),
-      15.toString(),
-      20.toString(),
-      25.toString(),
-      30.toString()
+      // strings for the time durations
+      for (int i = 0; i < timeMap.length; i++) timeMap.keys.elementAt(i)
     ],
     itemChosen: null,
   ),
@@ -67,7 +68,7 @@ bool allMenuItemsChosen() {
 // If any items have not been chosen, returns null.
 String? getWorkoutTitle() => allMenuItemsChosen()
     ? dropdownMenus[2].itemChosen! +
-        " Minute " +
+        " " +
         dropdownMenus[0].itemChosen! +
         " " +
         dropdownMenus[1].itemChosen! +
@@ -86,7 +87,6 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    print("In build method of main page");
     return BlocProvider<FitnessBuddyBloc>(
         create: (BuildContext context) => FitnessBuddyBloc(
             exerciseRepo: RepositoryProvider.of<ExerciseRepository>(context)),
@@ -117,7 +117,7 @@ class _MainPageState extends State<MainPage> {
                             BlocProvider.of<FitnessBuddyBloc>(context).add(
                                 GenerateWorkout(
                                     workoutTime:
-                                        int.parse(dropdownMenus[2].itemChosen!),
+                                        timeMap[dropdownMenus[2].itemChosen]!,
                                     muscleGroup: dropdownMenus[1].itemChosen!,
                                     difficulty: difficultyMap[
                                         dropdownMenus[0].itemChosen]!));

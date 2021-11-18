@@ -51,10 +51,8 @@ class RepoExercise {
         difficulty: difficulty);
   }
 
-  // _$ExerciseFromJson() is a function that will be in the .g file
   factory RepoExercise.fromJson(Map<String, dynamic> json) =>
       _$RepoExerciseFromJson(json);
 
-  // _$ExerciseToJson() is a function that will be in the .g file
   Map<String, dynamic> toJson() => _$RepoExerciseToJson(this);
 }

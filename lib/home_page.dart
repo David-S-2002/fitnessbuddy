@@ -11,12 +11,12 @@ import 'package:fitness_buddy_bloc/fitness_buddy_bloc.dart';
 Map<String, int> difficultyMap = {"Easy": 1, "Intermediate": 2, "Advanced": 3};
 
 Map<String, int> timeMap = {
-  "5 Minutes": 5 * SECONDS_PER_MINUTE,
-  "10 Minutes": 10 * SECONDS_PER_MINUTE,
-  "15 Minutes": 15 * SECONDS_PER_MINUTE,
-  "20 Minutes": 20 * SECONDS_PER_MINUTE,
-  "25 Minutes": 25 * SECONDS_PER_MINUTE,
-  "30 Minutes": 30 * SECONDS_PER_MINUTE,
+  "5 Min": 5 * SECONDS_PER_MINUTE,
+  "10 Min": 10 * SECONDS_PER_MINUTE,
+  "15 Min": 15 * SECONDS_PER_MINUTE,
+  "20 Min": 20 * SECONDS_PER_MINUTE,
+  "25 Min": 25 * SECONDS_PER_MINUTE,
+  "30 Min": 30 * SECONDS_PER_MINUTE,
 };
 
 // list of dropdown menus that go in the home page
@@ -103,7 +103,7 @@ class _MainPageState extends State<MainPage> {
                     dropdownMenus[1],
                     const Text("Time Duration"),
                     dropdownMenus[2],
-                    TextButton(
+                    ElevatedButton(
                         onPressed: () {
                           // if none of the dropdown values are null, send
                           // an event to the BLOC and navigate to the workout page
@@ -123,7 +123,10 @@ class _MainPageState extends State<MainPage> {
                                         dropdownMenus[0].itemChosen]!));
                           }
                         },
-                        child: const Text("Generate Workout"))
+                        child: const Text(
+                          "Generate Workout",
+                          style: TextStyle(color: Colors.black),
+                        ))
                   ] //DropdownButtonHideUnderline
                   ), //center
             )));

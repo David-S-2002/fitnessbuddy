@@ -7,11 +7,8 @@ class ExerciseRepository {
 
   Future<List<RepoExercise>> selectByMuscleGroupAndDifficulty(
       String muscleGroup, int difficulty) async {
-    print("Calling database");
     List<Exercise>? dbExercises = await database
         .selectByMuscleGroupAndDifficulty(muscleGroup, difficulty);
-
-    print("Called database");
 
     // fill the list with empty exercises. Avoids index range errors
     List<RepoExercise>? repoExercises = List<RepoExercise>.filled(
@@ -25,12 +22,9 @@ class ExerciseRepository {
             secondaryMuscleGroup: ""));
 
     if (dbExercises.isNotEmpty) {
-      print("Exercises not empty. Entering loop");
       for (int i = 0; i < dbExercises.length; i++) {
-        print(dbExercises[i].toJson());
         repoExercises[i] =
             repoExercises[i].convertDbExerciseToRepoExercise(dbExercises[i]);
-        print(repoExercises[i]);
       }
     }
 

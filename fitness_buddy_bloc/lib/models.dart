@@ -38,12 +38,6 @@ class BLOCExercise {
       difficulty.toString();
 }
 
-// A Circuit is a group of exercises that are performed all in a row without
-// rest time in between, and then rest time is given at the end.
-// The total time will be the time of all the exercises (we already know this
-// from the List<Exercise>) plus the rest time.
-// The difficulty will determine the rest time.
-
 class Circuit {
   int numExercises;
   List<BLOCExercise> exercises;

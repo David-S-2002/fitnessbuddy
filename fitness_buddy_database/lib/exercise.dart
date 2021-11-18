@@ -1,10 +1,6 @@
 // format copied from
 // https://github.com/ericgrandt/flutter-streams/blob/master/lib/models/note_model.dart
 
-// If you annotate an object with @JSON Serializable, and you run build_runner, then
-// a generated file (exercise.g.dart, in this case) will make the object
-// JSON serializable so you don't have to do it manually.
-
 import 'package:json_annotation/json_annotation.dart';
 part 'exercise.g.dart';
 
@@ -26,10 +22,8 @@ class Exercise {
       required this.equipment,
       required this.difficulty});
 
-  // _$ExerciseFromJson() is a function that will be in the .g file
   factory Exercise.fromJson(Map<String, dynamic> json) =>
       _$ExerciseFromJson(json);
 
-  // _$ExerciseToJson() is a function that will be in the .g file
   Map<String, dynamic> toJson() => _$ExerciseToJson(this);
 }

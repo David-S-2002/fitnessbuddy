@@ -21,11 +21,6 @@ Future<List<Circuit>> algorithm(int workoutTime, String muscleGroup,
   repoExercises = await repository.selectByMuscleGroupAndDifficulty(
       muscleGroup, difficulty);
 
-  // if (repoExercises.isEmpty) {
-  //   return [];
-  //   print("No exercises found");
-  // }
-
   blocExercises =
       List<BLOCExercise>.filled(repoExercises.length, emptyExercise);
 
@@ -71,8 +66,6 @@ Future<List<Circuit>> algorithm(int workoutTime, String muscleGroup,
       circuits[i].exercises[j] = blocExercises[randNum];
     }
   }
-
-  print("The circuits are: " + circuits.toString());
 
   return circuits;
 }

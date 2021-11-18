@@ -40,10 +40,6 @@ class _WorkoutViewState extends State<WorkoutView> {
           textAlign: TextAlign.center,
         ));
       } else {
-        // This would also throw an exception if the state is initial. If it's initial,
-        // then we should be at the home page.
-
-        // IDK if this is a good way to handle errors. Any other suggestions? @diyalebon @PrestonTL
         throw Exception("Invalid BLOC state");
       }
     });

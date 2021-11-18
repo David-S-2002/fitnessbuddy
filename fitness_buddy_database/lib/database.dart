@@ -3,23 +3,9 @@ part of 'fitness_buddy_database.dart';
 // This code, as well as the structure of the functions,
 // is copied from https://github.com/ericgrandt/flutter-streams/blob/master/lib/data/database.dart
 
-// Lines 13-25 are copied
+// Lines 9-32 are copied
 
-// Create a provate constructor
-
-// Need:
-// Shoulders - 3
-
-const List<String> MUSCLE_GROUPS = [
-  "Abs",
-  "Arms",
-  "Back",
-  "Chest",
-  "Full Body/Integrated",
-  "Shoulders",
-  "Legs/Butt/Hips"
-];
-
+// Create a private constructor
 class DBProvider {
   DBProvider._();
   static final DBProvider db = DBProvider._();
@@ -28,12 +14,12 @@ class DBProvider {
 
   // Set-up the database
   Future<Database> get database async {
-    //if (_database != null) return _database;
-
     // If database is null, instantiate it
     _database = await initDB();
     return _database;
   }
+
+  Future<void> insertExercises() async {}
 
   // open and create the DB
   initDB() async {
@@ -56,6 +42,8 @@ class DBProvider {
           "equipment TEXT,"
           "difficulty INTEGER"
           ")");
+
+      await insertExercises();
 
       await db.execute(
           "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup',"
@@ -741,6 +729,12 @@ class DBProvider {
           "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup',"
           "'secondaryMuscleGroup', 'equipment', 'difficulty')"
           "values (?, ?, ?, ?, ?, ?)",
+          [70, "Barbell Jammers", "Abs", "Legs/Butt/Hips", "Barbell", 3]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup',"
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
           [71, "Side Plank", "Abs", "Legs/Butt/Hips", "No Equipment", 1]);
 
       await db.execute(
@@ -878,7 +872,7 @@ class DBProvider {
             "Standing Trunk Rotation",
             "Abs",
             "None",
-            "Resistence Bands/Cables",
+            "Resistance Bands/Cables",
             2
           ]);
 
@@ -1117,7 +1111,7 @@ class DBProvider {
           "'secondaryMuscleGroup', 'equipment', 'difficulty')"
           "values (?, ?, ?, ?, ?, ?)",
           [
-            110,
+            111,
             "Warrior I",
             "Full Body/Integrated",
             "Legs/Butt/Hips",
@@ -1195,10 +1189,9 @@ class DBProvider {
     return null;
   }
 
-  // Have to select by secondary muscle group as well.
+  // note to self: Try to figure out secondary muscle tomorrow morning
   Future<List<Exercise>?> selectByMuscleGroupAndDifficulty(
       String muscleGroup, int difficulty) async {
-    print("Awaiting DB");
     final Database db = await database;
     List<Exercise> exerciseList = [];
     Exercise currentExercise;
@@ -1215,42 +1208,8 @@ class DBProvider {
         where: 'muscleGroup = ?',
         whereArgs: [muscleGroup]);
 
-    // add the exercises that have muscleGroup as their secondary
-    // // muscle group too:
-
-    // List<Map<String, Object?>> secondaryMuscleList = await db.query("Exercise",
-    //     columns: [
-    //       "exerciseID",
-    //       "exerciseName",
-    //       "muscleGroup",
-    //       "secondaryMuscleGroup",
-    //       "equipment",
-    //       "difficulty"
-    //     ],
-    //     where: 'secondaryMuscleGroup = ?',
-    //     whereArgs: [muscleGroup]);
-
-    // for (int i = 0; i < secondaryMuscleList.length; i++) {
-    //   results.add(secondaryMuscleList[i]);
-    // }
-    // results.addAll(await db.query("Exercise",
-    //     columns: [
-    //       "exerciseID",
-    //       "exerciseName",
-    //       "muscleGroup",
-    //       "secondaryMuscleGroup",
-    //       "equipment",
-    //       "difficulty"
-    //     ],
-    //     where: 'secondaryMuscleGroup = ?',
-    //     whereArgs: [muscleGroup]));
-
-    print("Entering if statement");
-
     if (results.isNotEmpty) {
-      print("Results not empty");
       for (int i = 0; i < results.length; i++) {
-        print("In loop");
         currentExercise = Exercise.fromJson(results[i]);
 
         if (currentExercise.difficulty == difficulty) {
@@ -1259,8 +1218,6 @@ class DBProvider {
       }
       return exerciseList;
     }
-
-    print("Results empty");
 
     return null;
   }

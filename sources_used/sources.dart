@@ -1,6 +1,3 @@
-// This file is for citing all the external sources we used.
-// These will probably go in our PowerPoint for the showcase.
-// Please put the URL of each source here.
 
 /*
 https://github.com/ericgrandt/flutter-streams

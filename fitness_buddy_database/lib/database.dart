@@ -382,8 +382,8 @@ class DBProvider {
             36,
             "Single Leg Push-off",
             "Legs/Butt/Hips",
-            "None",
-            "Raised Platform/Box",
+            "None"
+                "Raised Platform/Box",
             1
           ]);
 
@@ -433,46 +433,363 @@ class DBProvider {
           ]);
 
       await db.execute(
-          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup',"
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
           "'secondaryMuscleGroup', 'equipment', 'difficulty')"
           "values (?, ?, ?, ?, ?, ?)",
-          [
-            41,
-            "Stability Ball Push-Up",
-            "Chest",
-            "Shoulders",
-            "Stability Ball",
-            2
-          ]);
+          [41, "Bent Knee Push-up", "Arms", "Chest", "No Equipment", 1]);
 
       await db.execute(
-          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup',"
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [42, "Barbell Chest Press", "Arms", "Chest", "Barbell", 1]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [43, "Lying Chest Fly", "Chest", "Shoulders", "Dumbbells", 2]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [44, "Lying Pullovers", "Chest", "None", "Dumbbells", 2]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
           "'secondaryMuscleGroup', 'equipment', 'difficulty')"
           "values (?, ?, ?, ?, ?, ?)",
           [
-            42,
-            "Stability Ball Prone Walkout",
-            "Abs",
+            45,
+            "Stability Ball Reverse Extensions",
             "Back",
+            "Legs/Butt/Hips",
             "Stability Ball",
-            2
+            3
           ]);
 
       await db.execute(
-          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup',"
-          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
-          "values (?, ?, ?, ?, ?, ?)",
-          [43, "Supine Suitcase Pass", "Abs", "None", "Stability Ball", 3]);
-
-      await db.execute(
-          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup',"
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
           "'secondaryMuscleGroup', 'equipment', 'difficulty')"
           "values (?, ?, ?, ?, ?, ?)",
           [
-            44,
-            "Prone Runner",
-            "Full Body/Integrated",
-            "None",
+            46,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            47,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            48,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            49,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            50,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            51,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            52,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            53,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            54,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            55,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            56,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            57,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            58,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            59,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            60,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            61,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            62,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            63,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            64,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            65,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            66,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            67,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            68,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            69,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
+            "Stability Ball",
+            3
+          ]);
+
+      await db.execute(
+          "INSERT INTO Exercise ('exerciseID', 'exerciseName', 'muscleGroup', "
+          "'secondaryMuscleGroup', 'equipment', 'difficulty')"
+          "values (?, ?, ?, ?, ?, ?)",
+          [
+            70,
+            "Stability Ball Reverse Extensions",
+            "Back",
+            "Legs/Butt/Hips",
             "Stability Ball",
             3
           ]);

@@ -1506,7 +1506,6 @@ class DBProvider {
     return null;
   }
 
-  // note to self: Try to figure out secondary muscle tomorrow morning
   Future<List<Exercise>?> selectByMuscleGroupAndDifficulty(
       String muscleGroup, int difficulty) async {
     final Database db = await database;

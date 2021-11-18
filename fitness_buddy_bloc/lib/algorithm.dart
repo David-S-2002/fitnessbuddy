@@ -21,12 +21,13 @@ Future<List<Circuit>> algorithm(int workoutTime, String muscleGroup,
   repoExercises = await repository.selectByMuscleGroupAndDifficulty(
       muscleGroup, difficulty);
 
-  // Return/throw an exception/print if empty
+  // if (repoExercises.isEmpty) {
+  //   return [];
+  //   print("No exercises found");
+  // }
 
   blocExercises =
       List<BLOCExercise>.filled(repoExercises.length, emptyExercise);
-
-  print("BlocExercises.length = " + blocExercises.length.toString());
 
   // Set the fields of the circuit depending on difficulty:
   if (difficulty == 3) {
